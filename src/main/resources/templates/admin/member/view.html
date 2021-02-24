@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .mb-7 {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/admin/layout.html :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+
+        <div class="container-fluid">
+            <div th:if="${message}" class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+                <span th:text="${message}">완료</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <h1 class="h3 mb-2 text-gray-800">회원 정보</h1>
+            <form class="card shadow mb-4" style="width: 100%;">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">일반 회원 정보 조회</h6>
+                </div>
+                <div class="card-body">
+                    <div class="card mb-4">
+                        <div class="card-header">회원 번호</div>
+                        <input type="text" class="card-body" th:value="${member.getId()}" readonly="readonly">
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">프로필 이미지</div>
+                        <div id="current-profile-image" class="mt-3">
+                            <svg th:if="${#strings.isEmpty(member.getProfileImage())}" class="rounded"
+                                 th:data-jdenticon-value="${member.getNickname()}" width="125" height="125"></svg>
+                            <img th:if="${!#strings.isEmpty(member.profileImage)}" class="rounded"
+                                 th:src="${member.getProfileImage()}"
+                                 width="125" height="125" alt="name" th:alt="${member.getNickname()}"/>
+                        </div>
+                    </div>
+
+                    <div th:if="${member.getNickname()}" class="card mb-4">
+                        <div class="card-header">회원 닉네임</div>
+                        <input type="text" class="card-body" th:value="${member.getNickname()}" readonly="readonly">
+                    </div>
+
+                    <div th:if="${member.getEmail()}" class="card mb-4">
+                        <div class="card-header">회원 이메일</div>
+                        <input type="text" class="card-body" th:value="${member.getEmail()}" readonly="readonly">
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">가입 날짜</div>
+                        <input type="text" class="card-body date-weekday-time" th:value="${#temporals.format(member.getJoinedAt(), 'yyyy년 MM월 dd일')}" readonly="readonly">
+                    </div>
+
+                    <div th:if="${member.getOccupation() != '' && member.getOccupation() != null}" class="card mb-4">
+                        <div class="card-header">직업</div>
+                        <input type="text" class="card-body" th:value="${member.getOccupation()}" readonly="readonly">
+                    </div>
+
+                    <div th:if="${member.getBio() != '' && member.getBio() != null}" class="card mb-4">
+                        <div class="card-header">자기소개</div>
+                        <input type="text" class="card-body" th:value="${member.getBio()}" readonly="readonly">
+                    </div>
+
+                    <div th:if="${member.getUrl() != '' && member.getUrl() != null}" class="card mb-4">
+                        <div class="card-header">홈페이지</div>
+                        <input type="text" class="card-body" th:value="${member.getUrl()}" readonly="readonly">
+                    </div>
+
+                    <div th:if="${member.getTags() != '' && member.getTags() != null}" class="row">
+                        <h2 class="col-12">관심있는 스터디 주제</h2>
+                    </div>
+                    <div class="row mb-7">
+                        <div class="col-12">
+                            <div id="whitelist" th:text="${whitelist}" hidden></div>
+                            <input id="tags" type="hidden" name="tags" th:value="${#strings.listJoin(tags, ',')}"
+                                   class="tagify-outside" aria-describedby="tagHelp"/>
+                        </div>
+                    </div>
+
+                    <a th:href="@{'/admin/member/'+${id}+'/modify'(page = ${pageRequestDTO.getPage()},size=${pageRequestDTO.getSize()},keyword=${pageRequestDTO.getKeyword()})}" data-oper="modify" class="btn btn-secondary">수정하기</a>
+                    <a th:href="@{/admin/member(page = ${pageRequestDTO.getPage()},size=${pageRequestDTO.getSize()},keyword=${pageRequestDTO.getKeyword()})}" data-oper="list" class="btn btn-secondary">목록으로</a>
+                </div>
+            </form>
+        </div>
+
+        <div th:replace="fragments.html :: date-time"></div>
+        <!-- /.container-fluid -->
+        <!-- Custom scripts for all pages-->
+        <script src="/node_modules/startbootstrap-sb-admin-2/js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="/node_modules/startbootstrap-sb-admin-2/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="/node_modules/startbootstrap-sb-admin-2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="/node_modules/startbootstrap-sb-admin-2/js/demo/datatables-demo.js"></script>
+        <script th:replace="fragments.html :: ajax-csrf-header"></script>
+        <script th:replace="fragments.html :: update-tags (baseUrl = '/settings/tags' + ${member.getId()})"></script>
+    </th:block>
+</th:block>

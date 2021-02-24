@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title>Roadmap</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/node_modules/@yaireo/tagify/dist/tagify.css">
+    <link rel="stylesheet" href="/node_modules/summernote/dist/summernote-bs4.min.css">
+    <!--<link rel="stylesheet" href="../static/css/addrlinkSample.css">-->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/node_modules/jdenticon/dist/jdenticon.min.js"></script>
+    <style>
+        .container {
+            max-width: 100%;
+        }
+
+        .tagify-outside{
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        #roadmap-logo {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+
+        #roadmap-logo img {
+            height: auto;
+            width: 100%;
+            overflow: hidden;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        body,
+        input,
+        button,
+        select,
+        optgroup,
+        textarea,
+        .tooltip,
+        .popover {
+            font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+    </style>
+</head>
+
+<nav th:fragment="main-nav" class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="/" th:href="@{/}">
+        <img src="/images/logo.png" width="30" height="30">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <form th:action="@{/search/roadmap}" class="form-inline" method="get">
+                    <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="로드맵 찾기" aria-label="Search" />
+                </form>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav justify-content-end">
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a class="nav-link" th:href="@{/login}">로그인</a>
+            </li>
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a class="nav-link" th:href="@{/sign-up}">가입</a>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a class="nav-link" th:href="@{/notifications}">
+                    <i class="fa fa-bell-o" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <a class="nav-link btn btn-outline-primary" th:href="@{/new-roadmap}">
+                    <i class="fa fa-plus" aria-hidden="true"></i> 로드맵 개설
+                </a>
+            </li>
+            <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    <svg th:if="${#strings.isEmpty(member?.profileImage)}" th:data-jdenticon-value="${#authentication.name}"
+                         width="24" height="24" class="rounded border bg-light"></svg>
+                    <img th:if="${!#strings.isEmpty(member?.profileImage)}" th:src="${member.profileImage}"
+                         width="24" height="24" class="rounded border"/>
+                </a>
+                <div class="dropdown-menu dropdown-menu-sm-right" aria-labelledby="userDropdown">
+                    <h6 class="dropdown-header">
+                        <span sec:authentication="name">Username</span>
+                    </h6>
+                    <a class="dropdown-item" th:href="@{'/profile/' + ${#authentication.name}}">프로필</a>
+                    <a class="dropdown-item" >로드맵</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" th:href="@{'/settings/profile'}">설정</a>
+                    <form class="form-inline my-2 my-lg-0" action="#" th:action="@{/logout}" method="post">
+                        <button class="dropdown-item" type="submit">로그아웃</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<footer th:fragment="footer">
+    <div class="row justify-content-center">
+        <small class="d-block mb-3 text-muted">&copy; 2020</small>
+    </div>
+</footer>
+
+<div th:fragment="settings-menu (currentMenu)" class="list-group">
+    <a class="list-group-item list-group-item-action" th:classappend="${currentMenu == 'profile'}? active" href="#" th:href="@{/settings/profile}">프로필</a>
+    <a class="list-group-item list-group-item-action" th:classappend="${currentMenu == 'password'}? active" href="#" th:href="@{/settings/password}">패스워드</a>
+    <a class="list-group-item list-group-item-action" th:classappend="${currentMenu == 'notifications'}? active" href="#" th:href="@{/settings/notifications}">알림</a>
+    <a class="list-group-item list-group-item-action" th:classappend="${currentMenu == 'tags'}? active" href="#" th:href="@{/settings/tags}">관심 주제</a>
+    <a class="list-group-item list-group-item-action" th:classappend="${currentMenu == 'location'}? active" href="#" th:href="@{/settings/location}">주소</a>
+    <a class="list-group-item list-group-item-action list-group-item-danger" th:classappend="${currentMenu == 'account'}? active" href="#" th:href="@{/settings/account}">계정</a>
+</div>
+
+<div th:fragment="roadmap-info">
+    <div class="row pt-4 text-left justify-content-center bg-light">
+        <div class="col-6">
+            <a href="#" class="text-decoration-none" th:href="@{'/roadmap/' + ${roadmap.path}}">
+                <span class="h2" th:text="${roadmap.title}">로드맵 이름</span>
+            </a>
+        </div>
+        <div class="col-4 text-right justify-content-end">
+                <span th:if="${!roadmap.published}"
+                      class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="bottom"
+                      title="로드맵 공개 준비중">
+                    <button class="btn btn-primary btn-sm" style="pointer-events: none;" type="button" disabled>DRAFT</button>
+                </span>
+            <span th:if="${roadmap.closed}"
+                  class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="로드맵 종료됨">
+                    <button class="btn btn-primary btn-sm" style="pointer-events: none;" type="button" disabled>CLOSED</button>
+                </span>
+            <span th:if="${!roadmap.recruiting}"
+                  class="d-inline-block ml-1" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="팀원 모집중 아님">
+                    <button class="btn btn-primary btn-sm" style="pointer-events: none;" type="button" disabled>OFF</button>
+            </span>
+            <span sec:authorize="isAuthenticated()" th:if="${roadmap.isJoinable(#authentication.principal)}"
+                  class="btn-group" role="group" aria-label="Basic example">
+                    <a class="btn btn-primary" th:href="@{'/roadmap/' + ${roadmap.path} + '/join'}">
+                        로드맵 가입
+                    </a>
+                    <a class="btn btn-outline-primary" th:href="@{'/roadmap/' + ${roadmap.path} + '/members'}"
+                       th:text="${roadmap.members.size()}">1</a>
+                </span>
+            <span sec:authorize="isAuthenticated()"
+                  th:if="${!roadmap.closed && roadmap.isMember(#authentication.principal)}" class="btn-group" role="group">
+                    <a class="btn btn-outline-warning" th:href="@{'/roadmap/' + ${roadmap.path} + '/leave'}">
+                        로드맵 탈퇴
+                    </a>
+                    <a class="btn btn-outline-primary" th:href="@{'/roadmap/' + ${roadmap.path} + '/members'}"
+                       th:text="${roadmap.members.size()}">1</a>
+                </span>
+            <span sec:authorize="isAuthenticated()"
+                  th:if="${roadmap.published && !roadmap.closed && roadmap.isOwner(#authentication.principal)}">
+                    <a class="btn btn-outline-primary" th:href="@{'/roadmap/' + ${roadmap.path} + '/new-event'}">
+                        <i class="fa fa-plus"></i> 모임 만들기
+                    </a>
+                </span>
+        </div>
+    </div>
+    <div class="row justify-content-center bg-light">
+        <div class="col-10">
+            <p class="lead" th:text="${roadmap.shortDescription}"></p>
+        </div>
+    </div>
+    <div class="row justify-content-center bg-light">
+        <div class="col-10">
+            <p>
+                <span th:each="tag: ${roadmap.tags}"
+                      class="font-weight-light text-monospace badge badge-pill badge-info mr-3">
+                    <a th:href="@{'/search/tag/' + ${tag.title}}" class="text-decoration-none text-white">
+                        <i class="fa fa-tag"></i> <span th:text="${tag.title}">Tag</span>
+                    </a>
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="roadmap-menu (roadmapMenu)" class="row px-3 justify-content-center bg-light">
+    <nav class="col-10 nav nav-tabs">
+        <a class="nav-item nav-link" href="#" th:classappend="${roadmapMenu == 'info'}? active" th:href="@{'/roadmap/' + ${roadmap.path}}">
+            <i class="fa fa-info-circle"></i> 소개
+        </a>
+        <a class="nav-item nav-link" href="#" th:classappend="${roadmapMenu == 'map'}? active" th:href="@{'/roadmap/' + ${roadmap.path} + '/map'}">
+            <i class="fas fa-map"></i> 로드맵
+        </a>
+        <a class="nav-item nav-link" href="#" th:classappend="${roadmapMenu == 'setMap'}? active" th:href="@{'/roadmap/' + ${roadmap.path} + '/setMap'}">
+            <i class="fas fa-map"></i> 로드맵 설정
+        </a>
+        <a class="nav-item nav-link" href="#" th:classappend="${roadmapMenu == 'members'}? active" th:href="@{'/roadmap/' + ${roadmap.path} + '/members'}">
+            <i class="fa fa-user"></i> 구성원
+        </a>
+        <a class="nav-item nav-link" th:classappend="${roadmapMenu == 'events'}? active" href="#" th:href="@{'/roadmap/' + ${roadmap.path} + '/events'}">
+            <i class="fa fa-calendar"></i> 모임
+        </a>
+        <a sec:authorize="isAuthenticated()" th:if="${roadmap.isOwner(#authentication.principal)}"
+           class="nav-item nav-link" th:classappend="${roadmapMenu == 'settings'}? active" href="#" th:href="@{'/roadmap/' + ${roadmap.path} + '/settings/description'}">
+            <i class="fa fa-cog"></i> 설정
+        </a>
+    </nav>
+</div>
+
+<div th:fragment="roadmap-settings-menu (currentMenu)" class="list-group">
+    <a class="list-group-item list-group-item-action" th:classappend="${currentMenu == 'description'}? active" href="#" th:href="@{'/roadmap/'+${roadmap.path}+'/settings/description'}">소개</a>
+    <a class="list-group-item list-group-item-action" th:classappend="${currentMenu == 'image'}? active" href="#" th:href="@{'/roadmap/'+${roadmap.path}+'/settings/banner'}">배너 이미지</a>
+    <a class="list-group-item list-group-item-action" th:classappend="${currentMenu == 'tags'}? active" href="#" th:href="@{'/roadmap/'+${roadmap.path}+'/settings/tags'}">로드맵 주제</a>
+    <a class="list-group-item list-group-item-action" th:classappend="${currentMenu == 'roadmap'}? active" href="#" th:href="@{'/roadmap/'+${roadmap.path}+'/settings/roadmap'}">로드맵</a>
+</div>
+
+<div th:fragment="roadmap-banner" th:if="${roadmap.useBanner}" class="row" id="roadmap-logo">
+    <img th:src="${roadmap?.image}">
+</div>
+
+<div th:fragment="owner(owner,isOwner)" class="row px-3 justify-content-center">
+    <ul class="list-unstyled col-10">
+        <li class="media mt-3">
+            <svg th:if="${#strings.isEmpty(owner?.profileImage)}" th:data-jdenticon-value="${owner.nickname}"
+                 width="64" height="64" class="rounded border bg-light"></svg>
+            <img th:if="${!#strings.isEmpty(owner?.profileImage)}" th:src="${owner?.profileImage}"
+                 width="64" height="64" class="rounded border mr-3"/>
+            <div class="media-body">
+                <h5 class="mt-0 mb-1"><span th:text="${owner.nickname}"></span><span th:if="${isOwner}" class="badge badge-primary">관리자</span></h5>
+                <span th:text="${owner.bio}"></span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div th:fragment="member-list (members,isOwner)" class="row px-3 justify-content-center">
+    <ul class="list-unstyled col-10">
+        <li class="media mt-3" th:each="member: ${members}">
+            <svg th:if="${#strings.isEmpty(member?.profileImage) && member.getNickname() != roadmap.getOwner().getNickname()}" th:data-jdenticon-value="${member.getNickname()}"
+                 width="64" height="64" class="rounded border bg-light"></svg>
+            <img th:if="${!#strings.isEmpty(member?.profileImage) && member.getNickname() != roadmap.getOwner().getNickname()}" th:src="${member?.profileImage}"
+                 width="64" height="64" class="rounded border mr-3"/>
+            <div class="media-body" th:if="${member.getNickname() != roadmap.getOwner().getNickname()}">
+                <h5 class="mt-0 mb-1"><span th:text="${member.nickname}"></span><span th:if="${isOwner}" class="badge badge-primary">관리자</span></h5>
+                <span th:text="${member.bio}"></span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div type="text/javascript" th:fragment="arbor(roadmap)">
+    <script>
+        (function ($) {
+            var Renderer = function (canvas) {
+                var canvas = $(canvas).get(0);
+                var ctx = canvas.getContext("2d");
+                var particleSystem;
+                var that = {
+                    init: function (system) {
+                        particleSystem = system;
+                        particleSystem.screenSize(canvas.width, canvas.height);
+                        particleSystem.screenPadding(100);
+                        that.initMouseHandling()
+                    },
+                    redraw: function () {
+                        ctx.fillStyle = "white";
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        particleSystem.eachEdge(function (edge, pt1, pt2) {
+                            ctx.strokeStyle = edge.data.linkcolor;
+                            ctx.lineWidth = 3;
+                            ctx.beginPath();
+                            ctx.moveTo(pt1.x, pt1.y);
+                            ctx.lineTo(pt2.x, pt2.y);
+                            ctx.stroke();
+                        });
+                        particleSystem.eachNode(function (node, pt) {
+                            ctx.beginPath();
+                            ctx.arc(pt.x, pt.y, 15, 0, 2 * Math.PI);
+                            ctx.fillStyle = node.data.nodecolor;
+                            ctx.fill();
+                            ctx.font = "18px Arial";
+                            ctx.fillStyle = "#000000";
+                            ctx.fillText(node.data.name, pt.x + 20, pt.y + 5);
+                        });
+                    },
+                    initMouseHandling: function () {
+                        var dragged = null;
+                        var handler = {
+                            clicked: function (e) {
+                                var pos = $(canvas).offset();
+                                _mouseP = arbor.Point(e.pageX - pos.left, e.pageY - pos.top);
+                                dragged = particleSystem.nearest(_mouseP);
+                                if (dragged && dragged.node !== null) {
+                                    dragged.node.fixed = true;
+                                }
+                                $(canvas).bind('mousemove', handler.dragged);
+                                $(window).bind('mouseup', handler.dropped);
+                                return false;
+                            },
+                            dragged: function (e) {
+                                var pos = $(canvas).offset();
+                                var s = arbor.Point(e.pageX - pos.left, e.pageY - pos.top);
+                                if (dragged && dragged.node !== null) {
+                                    var p = particleSystem.fromScreen(s);
+                                    dragged.node.p = p
+                                }
+                                return false;
+                            },
+                            dropped: function (e) {
+                                if (dragged === null || dragged.node === undefined) return;
+                                if (dragged.node !== null) dragged.node.fixed = false;
+                                dragged.node.tempMass = 1000;
+                                dragged = null;
+                                $(canvas).unbind('mousemove', handler.dragged);
+                                $(window).unbind('mouseup', handler.dropped);
+                                _mouseP = null;
+                                return false;
+                            }
+                        };
+                        $(canvas).mousedown(handler.clicked);
+                    }
+                }
+                return that;
+            }
+            $(document).ready(function () {
+                var sys = arbor.ParticleSystem(700, 700, 0.5);
+                sys.renderer = Renderer("#viewport");
+                sys.addNode('Node 1', {name: "Node 1", nodecolor: "#88cc88"});
+                sys.addNode('Node 2', {name: "Node 2", nodecolor: "#888888"});
+                sys.addNode('Node 3', {name: "Node 3", nodecolor: "#888888"});
+                sys.addNode('Node 4', {name: "Node 4", nodecolor: "#888888"});
+                sys.addNode('Node 5', {name: "Node 5", nodecolor: "#888888"});
+                sys.addNode('Node 6', {name: "Node 6", nodecolor: "#888888"});
+                sys.addEdge('Node 1', 'Node 3', {linkcolor: "#888888"});
+                sys.addEdge('Node 1', 'Node 2', {linkcolor: "#888888"});
+                sys.addEdge('Node 2', 'Node 5', {linkcolor: "#ff8888"});
+                sys.addEdge('Node 2', 'Node 4', {linkcolor: "#ff8888"});
+                sys.addEdge('Node 4', 'Node 5', {linkcolor: "#ff8888"});
+                sys.addEdge('Node 5', 'Node 6', {linkcolor: "#888888"});
+            })
+        })(this.jQuery);
+    </script>
+</div>
+<div th:fragment="message" th:if="${message}" class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+    <span th:text="${message}">완료</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div th:fragment="post-nav">
+    <div class="row pt-4 text-left justify-content-center bg-light">
+        <div class="col-6">
+            <a href="#" class="text-decoration-none" th:href="@{'/post/' + ${post.id}}">
+                <span class="h2" th:text="${post.title}">로드맵 이름</span>
+            </a>
+        </div>
+    </div>
+    <div class="row justify-content-center bg-light">
+        <div class="col-10">
+            <p class="lead" th:text="${post.description}"></p>
+        </div>
+    </div>
+    <div class="row justify-content-center bg-light">
+        <div class="col-10">
+            <p>
+                <span th:each="tag: ${post.tags}"
+                      class="font-weight-light text-monospace badge badge-pill badge-info mr-3">
+                    <a th:href="@{'/search/tag/' + ${tag.title}}" class="text-decoration-none text-white">
+                        <i class="fa fa-tag"></i> <span th:text="${tag.title}">Tag</span>
+                    </a>
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="date-time">
+    <script src="/node_modules/moment/min/moment-with-locales.min.js"></script>
+    <script type="application/javascript">
+        $(function () {
+            moment.locale('ko');
+            $(".date-time").text(function(index, dateTime) {
+                return moment(dateTime, "YYYY-MM-DD`T`hh:mm").format('LLL');
+            });
+            $(".date").text(function(index, dateTime) {
+                return moment(dateTime, "YYYY-MM-DD`T`hh:mm").format('LL');
+            });
+            $(".weekday").text(function(index, dateTime) {
+                return moment(dateTime, "YYYY-MM-DD`T`hh:mm").format('dddd');
+            });
+            $(".time").text(function(index, dateTime) {
+                return moment(dateTime, "YYYY-MM-DD`T`hh:mm").format('LT');
+            });
+            $(".calendar").text(function(index, dateTime) {
+                return moment(dateTime, "YYYY-MM-DD`T`hh:mm").calendar();
+            });
+            $(".fromNow").text(function(index, dateTime) {
+                return moment(dateTime, "YYYY-MM-DD`T`hh:mm").fromNow();
+            });
+            $(".date-weekday-time").text(function(index, dateTime) {
+                return moment(dateTime, "YYYY-MM-DD`T`hh:mm").format('LLLL');
+            });
+        })
+    </script>
+</div>
+
+<script type="application/javascript" th:inline="javascript" th:fragment="ajax-csrf-header">
+    $(function() {
+        var csrfToken = /*[[${_csrf.token}]]*/ null;
+        var csrfHeader = /*[[${_csrf.headerName}]]*/ null;
+        $(document).ajaxSend(function (e, xhr, options) {
+            xhr.setRequestHeader(csrfHeader, csrfToken);
+        });
+    });
+</script>
+
+<script type="application/javascript" th:fragment="form-validation">
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            let forms = document.getElementsByClassName('needs-validation');
+
+            // Loop over them and prevent submission
+            Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        }, false)
+    }())
+</script>
+
+<script type="application/javascript" th:fragment="cropper">
+    $(function() {
+        cropper = '';
+        let $confirmBtn = $("#confirm-button");
+        let $resetBtn = $("#reset-button");
+        let $cutBtn = $("#cut-button");
+        let $newProfileImage = $("#new-profile-image");
+        let $currentProfileImage = $("#current-profile-image");
+        let $resultImage = $("#cropped-new-profile-image");
+        let $profileImage = $("#profileImage");
+
+        $newProfileImage.hide();
+        $cutBtn.hide();
+        $resetBtn.hide();
+        $confirmBtn.hide();
+
+        $("#profile-image-file").change(function(e) {
+            if (e.target.files.length === 1) {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    if (e.target.result) {
+                        if (!e.target.result.startsWith("data:image")) {
+                            alert("이미지 파일을 선택하세요.");
+                            return;
+                        }
+
+                        let img = document.createElement("img");
+                        img.id = 'new-profile';
+                        img.src = e.target.result;
+                        img.setAttribute('width', '100%');
+
+                        $newProfileImage.html(img);
+                        $newProfileImage.show();
+                        $currentProfileImage.hide();
+
+                        let $newImage = $(img);
+                        $newImage.cropper({aspectRatio: 1});
+                        cropper = $newImage.data('cropper');
+
+                        $cutBtn.show();
+                        $confirmBtn.hide();
+                        $resetBtn.show();
+                    }
+                };
+
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        $resetBtn.click(function() {
+            $currentProfileImage.show();
+            $newProfileImage.hide();
+            $resultImage.hide();
+            $resetBtn.hide();
+            $cutBtn.hide();
+            $confirmBtn.hide();
+            $profileImage.val('');
+        });
+
+        $cutBtn.click(function () {
+            let dataUrl = cropper.getCroppedCanvas().toDataURL();
+
+            if (dataUrl.length > 1000 * 1024) {
+                alert("이미지 파일이 너무 큽니다. 1024000 보다 작은 파일을 사용하세요. 현재 이미지 사이즈 " + dataUrl.length);
+                return;
+            }
+
+            let newImage = document.createElement("img");
+            newImage.id = "cropped-new-profile-image";
+            newImage.src = dataUrl;
+            newImage.width = 125;
+            $resultImage.html(newImage);
+            $resultImage.show();
+            $confirmBtn.show();
+
+            $confirmBtn.click(function () {
+                $newProfileImage.html(newImage);
+                $cutBtn.hide();
+                $confirmBtn.hide();
+                $profileImage.val(dataUrl);
+            });
+        });
+    });
+</script>
+
+<div th:fragment="update-tags (baseUrl)" >
+    <script src="/node_modules/@yaireo/tagify/dist/tagify.min.js"></script>
+    <script type="application/javascript">
+        $(function () {
+            function tagRequest(url, tagTitle) {
+                $.ajax({
+                    dataType: "json",
+                    autocomplete: {
+                        enabled: true,
+                        rightKey: true,
+                    },
+                    contentType: "application/json; charset=utf-8",
+                    method: "POST",
+                    url: "[(${baseUrl})]" + url,
+                    data: JSON.stringify({'tagTitle': tagTitle})
+                }).done(function (data, status) {
+                    console.log("${data} and status is ${status}");
+                });
+            }
+
+            function onAdd(e) {
+                tagRequest("/add", e.detail.data.value);
+            }
+
+            function onRemove(e) {
+                tagRequest("/remove", e.detail.data.value);
+            }
+
+            var tagInput = document.querySelector("#tags");
+
+            var tagify = new Tagify(tagInput, {
+                pattern: /^.{0,20}$/,
+                whitelist : JSON.parse(document.querySelector("#whitelist").textContent),
+                dropdown : {
+                    enabled: 1, // suggest tags after a single character input
+                } // map tags
+            });
+
+            tagify.on("add", onAdd);
+            tagify.on("remove", onRemove);
+
+            // add a class to Tagify's input element
+            tagify.DOM.input.classList.add('form-control');
+            // re-place Tagify's input element outside of the  element (tagify.DOM.scope), just before it
+            tagify.DOM.scope.parentNode.insertBefore(tagify.DOM.input, tagify.DOM.scope);
+        });
+    </script>
+</div>
+
+<script type="application/javascript" th:inline="javascript" th:fragment="ajax-csrf-header">
+    $(function() {
+        var csrfToken = /*[[${_csrf.token}]]*/ null;
+        var csrfHeader = /*[[${_csrf.headerName}]]*/ null;
+        $(document).ajaxSend(function (e, xhr, options) {
+            xhr.setRequestHeader(csrfHeader, csrfToken);
+        });
+    });
+</script>
+
+<div th:fragment="editor-script">
+    <script src="/node_modules/summernote/dist/summernote-bs4.js"></script>
+    <script type="application/javascript">
+        $(function() {
+            $('.editor').summernote({
+                fontNames:['Arial','Arial Black', 'Comic Sans MS', 'Courier New', 'Noto Sans KR', 'Merriweather'],
+                placeholder: '로드맵의 목표, 일정, 진행 방식, 사용할 교제 또는 인터넷 강좌 그리고 모집중인 팀원 등 로드맵에 대해 자세히 적어주세요.',
+                tabSize : 2,
+                height:300
+            });
+        });
+    </script>
+</div>
+
+<div th:fragment="modal">
+    <script type="application/javascript">
+        const modal = $("#myModal"),
+            close = $(".close_modal"),
+            modalContent = $(".modal-content"),
+            btn_show_board = $("#btn_show_board");
+
+        close.on("click", (e) => {
+            modal.css("display","none");
+            modal.find("ul").html("");
+            modal.find(".content_div").html("");
+            modal.find("#map").css("display","none");
+            modal.find(".content_div").css("display","none");
+        });
+
+        window.onclick = function(e) {
+
+            if (e.target === document.getElementById('myModal')) {
+                modal.css("display","none");
+                modal.find("ul").html("");
+                modal.find(".content_div").html("");
+                modal.find("#map").css("display","none");
+                modal.find(".content_div").css("display","none");
+            }
+        }
+
+        // esc 눌러서 모달 escape
+        $(document).keyup(function(e) {
+            if(e.key === "Escape"){
+                modal.css("display","none");
+                modal.find("ul").html("");
+                modal.find(".content_div").html("");
+                modal.find("#map").css("display","none");
+                modal.find(".content_div").css("display","none");
+            }
+        });
+
+        $(".alert_closebtn").on("click", e => {
+            $(e.target).parent().addClass("hide");
+            $(e.target).parent().removeClass("show");
+            //setTimeout($(e.target).parent().removeClass(x"showAlert"),5000);
+        });
+    </script>
+</div>
+<script th:fragment="tooltip" type="application/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
+<div th:fragment="event-form(mode, action)">
+    <div class="py-5 text-center">
+        <h2>
+            <a th:href="@{'/roadmap/' + ${roadmap.path}}"><span th:text="${roadmap.title}">로드맵</span></a>
+            <span th:if="${mode == 'edit'}" th:text="${event.title}"></span>
+            <span th:if="${mode == 'new'}">새 모임 만들기</span>
+        </h2>
+    </div>
+    <div class="row justify-content-center">
+        <form class="needs-validation col-sm-10" th:action="@{${action}}" th:object="${eventForm}" method="post" novalidate>
+            <div class="form-group">
+                <label for="title">모임 이름</label>
+                <input id="title" type="text" th:field="*{title}" class="form-control" placeholder="모임 이름" aria-describedby="titleHelp" required min="2" max="50">
+                <small id="titleHelp" class="form-text text-muted">
+                    모임 이름을 50자 이내로 입력하세요.
+                </small>
+                <small class="invalid-feedback">모임 이름을 입력하세요.</small>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('title')}" th:error="*{title}">Error</small>
+            </div>
+            <div class="form-group" th:if="${mode == 'new'}">
+                <label for="eventType">모집 방법</label>
+                <select th:field="*{eventType}" class="custom-select mr-sm-2" id="eventType" aria-describedby="eventTypeHelp">
+                    <option th:value="FCFS">선착순</option>
+                    <option th:value="CONFIRMATIVE">관리자 확인</option>
+                </select>
+                <small id="eventTypeHelp" class="form-text text-muted">
+                    두가지 모집 방법이 있습니다. <br/>
+                    <strong>선착순</strong>으로 모집하는 경우, 모집 인원 이내의 접수는 자동으로 확정되며, 제한 인원을 넘는 신청은 대기 신청이 되며 이후에 확정
+                    <strong>확인</strong>으로 모집하는 경우, 모임 및 스터디 관리자가 모임 신청 목록을 조회하고 직접 확정 여부를 정할 수 있습니다.
+                </small>
+            </div>
+            <!---->
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="limitOfEnrollments">모집 인원</label>
+                    <input id="limitOfEnrollments" type="number" th:field="*{limitOfEnrollments}" class="form-control" placeholder=""
+                           aria-describedby="limitOfEnrollmentsHelp">
+                    <small id="limitOfEnrollmentsHelp" class="form-text text-muted">
+                        최대 수용 가능한 모임 참석 인원을 설정하세요. 최소 2인 이상 모임이어야 합니다.
+                    </small>
+                    <small class="invalid-feedback">모임 신청 마감 인원을 입력하세요.</small>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('limitOfEnrollments')}" th:error="*{limitOfEnrollments}">Error</small>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="endEnrollmentDateTime">등록 마감 일시</label>
+                    <input id="endEnrollmentDateTime" type="datetime-local" th:field="*{endEnrollmentDateTime}" class="form-control" placeholder=""
+                           aria-describedby="endEnrollmentsHelp">
+                    <small id="endEnrollmentsHelp" class="form-text text-muted">
+                        등록 마감 이전에만 로드맵 모임 참가 신청을 할 수 있습니다.
+                    </small>
+                    <small class="invalid-feedback">모임 신청 마감 일시를 입력하세요.</small>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('endEnrollmentDateTime')}" th:error="*{endEnrollmentDateTime}">Error</small>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="startDateTime">모집 시작 일시</label>
+                    <input id="startDateTime" type="datetime-local" th:field="*{startDateTime}" class="form-control" placeholder=""
+                           aria-describedby="startDateTimeHelp">
+                    <small id="startDateTimeHelp" class="form-text text-muted">
+                        모임 시작 일시를 입력하세요. 상세한 모임 일정은 본문에 적어주세요.
+                    </small>
+                    <small class="invalid-feedback">모임 시작 일시를 입력하세요.</small>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('startDateTime')}" th:error="*{startDateTime}">Error</small>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="endDateTime">모집 종료 일시</label>
+                    <input id="endDateTime" type="datetime-local" th:field="*{endDateTime}" class="form-control" placeholder=""
+                           aria-describedby="endDateTimeHelp">
+                    <small id="endDateTimeHelp" class="form-text text-muted">
+                        모임 종료 일시가 지나면 모임은 자동으로 종료 상태로 바뀝니다.
+                    </small>
+                    <small class="invalid-feedback">모임 종료 일시를 입력하세요.</small>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('endDateTime')}" th:error="*{endDateTime}">Error</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title">모임 설명</label>
+                <textarea id="description" type="textarea" th:field="*{description}" class="editor form-control" placeholder="모임을 자세히 설명해 주세요." aria-describedby="descriptionHelp" required>
+                </textarea>
+                <small id="descriptionHelp" class="form-text text-muted">
+                    모임에서 다루는 주제, 장소, 진행 방식 등을 자세히 적어 주세요.
+                </small>
+                <small class="invalid-feedback">모임 설명을 입력하세요.</small>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('description')}" th:error="*{description}">FullDescription Error</small>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit" aria-describedby="submitHelp"
+                        th:text="${mode == 'edit' ? '모임 수정' : '모임 만들기'}">모임 수정</button>
+            </div>
+        </form>
+    </div>
+</div>
+</html>

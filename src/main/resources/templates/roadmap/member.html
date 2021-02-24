@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="fragments.html :: head"></head>
+<body class="bg-light">
+<div th:replace="fragments.html :: main-nav"></div>
+<div th:replace="fragments.html :: roadmap-banner"></div>
+
+<div class="container">
+    <div th:replace="fragments.html :: roadmap-info"></div>
+    <div th:replace="fragments.html :: roadmap-menu(roadmapMenu='members')"></div>
+
+    <div th:replace="fragments.html :: owner(owner=${roadmap.owner},isOwner=${true})"></div>
+    <div th:replace="fragments.html :: member-list(members=${roadmap.members},isOwner=${false})"></div>
+
+    <div th:replace="fragments.html :: footer"></div>
+</div>
+<script th:replace="fragments.html :: tooltip"></script>
+</body>
+</html>

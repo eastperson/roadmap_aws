@@ -1,0 +1,120 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id "com.github.node-gradle.node" version "2.2.3"
+    id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
+}
+
+group 'com.roadmap'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://repo.spring.io/libs-milestone'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+
+group 'com.roadmap'
+sourceCompatibility = JavaVersion.VERSION_11
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    compileOnly('org.projectlombok:lombok')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // 추가된 설정
+    implementation 'org.springframework.boot:spring-boot-devtools:2.3.8.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'org.springframework.security:spring-security-test'
+    testCompile 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.0.Final'
+    // https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-java8time
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time'
+
+    // https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+    compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.6'
+
+    // https://mvnrepository.com/artifact/com.tngtech.archunit/archunit-junit5-api
+    testCompile group: 'com.tngtech.archunit', name: 'archunit-junit5-api', version: '0.13.1'
+    testImplementation group: 'com.tngtech.archunit', name: 'archunit-junit5-api', version: '0.13.1'
+
+    implementation 'com.querydsl:querydsl-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    compile group: 'io.jsonwebtoken', name : 'jjwt', version : '0.9.1'
+
+}
+
+/**
+ * npm install start
+ */
+node {
+    version = '12.13.1'
+    download = true
+    nodeModulesDir = file("${projectDir}/src/main/resources/static")
+}
+
+task copyFrontLib(type: Copy) {
+    from "${projectDir}/src/main/resources/static"
+    into "${projectDir}/build/resources/main/static/."
+}
+
+copyFrontLib.dependsOn npmInstall
+compileJava.dependsOn copyFrontLib
+
+test {
+    useJUnitPlatform()
+}
+
+def querydslDir = "$buildDir/generated/querydsl"
+
+querydsl {
+    jpa = true
+    querydslSourcesDir = querydslDir
+}
+
+sourceSets {
+    main.java.srcDir querydslDir
+}
+
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
+
+compileQuerydsl {
+    options.annotationProcessorPath = configurations.querydsl
+}
