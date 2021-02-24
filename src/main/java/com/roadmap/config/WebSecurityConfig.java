@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/","/login","/h2-console/**","/sign-up","/popup/jusoPopup","/sign-up","/email-login","/roadmap/api/**").permitAll()
-                .mvcMatchers(HttpMethod.GET, "/profile/*","/post/*","/roadmap/*").permitAll()
+                .mvcMatchers(HttpMethod.GET, "/profile/**","/post/**","/roadmap/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated();
         http.csrf().ignoringAntMatchers("/popup/jusoPopup","/settings/location","/roadmap/api/**");
