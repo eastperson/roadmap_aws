@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head">
+</head>
+<body class="bg-light">
+<div th:replace="fragments.html :: main-nav"></div>
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-2">
+            <div th:replace="fragments.html :: settings-menu(currentMenu='location')"></div>
+        </div>
+        <div class="col-8">
+            <div th:if="${message}" class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+                <span th:text="${message}">메시지</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="row">
+                <h2 class="col-sm-12">주소 변경</h2>
+            </div>
+            <div class="row mt-3">
+                <form id="addr_form" class="col-sm-6" action="#"
+                      th:action="@{/settings/location}" th:object="${locationForm}" method="post" novalidate>
+                    <div class="form-group">
+                        <label for="addr">주소</label>
+                        <input id="addr" type="text" th:field="*{addr}" class="form-control"
+                               placeholder="주소 찾기를 눌러주세요." aria-describedby="addrHelp" required readonly>
+                        <input type="button" onClick="goPopup();" id="btn_find_loc" class="btn btn-primary mt-3 btn-block" value="주소찾기"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('addr')}" th:errors="*{addr}">
+                            주소를 입력해주세요.
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="siNm">도시명</label>
+                        <input id="siNm" type="text" th:field="*{siNm}" class="form-control"
+                               placeholder="도시명" aria-describedby="siNmHelp" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="sggNm">시/군/구</label>
+                        <input id="sggNm" type="text" th:field="*{sggNm}" class="form-control"
+                                aria-describedby="sggNmHelp" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="emdNm">읍/면/동</label>
+                        <input id="emdNm" type="text" th:field="*{emdNm}" class="form-control"
+                               aria-describedby="emdNmHelp" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="addrDetail">상세주소</label>
+                        <input id="addrDetail" type="text" th:field="*{addrDetail}" class="form-control"
+                               placeholder="상세주소" aria-describedby="addrDetailHelp" required>
+                    </div>
+                        <label for="lat"></label>
+                        <input id="lat" type="hidden" th:field="*{lat}" class="form-control"
+                               aria-describedby="urlHelp" required>
+                        <label for="lng"></label>
+                        <input id="lng" type="hidden" th:field="*{lng}" class="form-control"
+                               aria-describedby="lngHelp" required>
+                    <div id="map" ></div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block mt-5" type="submit"
+                                aria-describedby="submitHelp">수정하기</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript"  th:src="@{${'//dapi.kakao.com/v2/maps/sdk.js?appkey=' + kakaoJsKey}}"></script>
+<script th:if="${locationForm.getAddr() != null}" th:inline="javascript">
+
+    let addrData = document.getElementById("addr_form").addr.value
+        console.log("addr : "+addrData);
+
+    let initJuso = function (addrData){
+
+        console.log("addr : "+addrData);
+
+        $.ajax({
+            url:'https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(addrData),
+            type:'GET',
+            headers: {'Authorization' : 'KakaoAK ' + [[${kakaoRestKey}]]},
+            success:function(data){
+                console.log(data.documents[0].x);
+                document.getElementById("addr_form").lng.value = data.documents[0].x
+                document.getElementById("addr_form").lat.value = data.documents[0].y
+                console.log(data.documents[0].y);
+
+                let container = document.getElementById('map');
+                container.style.display = 'block';
+                container.style.width = '250px';
+                container.style.height = '200px';
+                let options = {
+                    center: new kakao.maps.LatLng(data.documents[0].y, data.documents[0].x),
+                    level: 3
+                };
+
+                let markerPosition  = new kakao.maps.LatLng(data.documents[0].y, data.documents[0].x);
+
+                let map = new kakao.maps.Map(container, options);
+
+                let marker = new kakao.maps.Marker({
+                    position: markerPosition
+                });
+
+                marker.setMap(map);
+
+            },
+            error : function(e){
+                console.log(e);
+            }
+        })
+    };
+
+    initJuso(addrData);
+</script>
+<script type="text/javascript" th:inline="javascript">
+    //주소 api
+    function goPopup(){
+        let pop = window.open("/popup/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes");
+    }
+    function jusoCallBack(roadAddrPart1,addrDetail,siNm,sggNm,emdNm){
+        console.log("juso call back function..................");
+        console.log("juso call back function.................. road add part 1 : " + roadAddrPart1);
+        document.getElementById("addr_form").addr.value = roadAddrPart1;
+        document.getElementById("addr_form").addrDetail.value = addrDetail;
+        document.getElementById("addr_form").siNm.value = siNm;
+        document.getElementById("addr_form").sggNm.value = sggNm;
+        document.getElementById("addr_form").emdNm.value = emdNm;
+        //위도 경도를 가져온다.
+        //kakaoApi GeoCode
+        $.ajax({
+            url:'https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(roadAddrPart1),
+            type:'GET',
+            headers: {'Authorization' : 'KakaoAK ' + [[${kakaoRestKey}]]},
+            success:function(data){
+                console.log(data.documents[0].x);
+                document.getElementById("addr_form").lng.value = data.documents[0].x
+                document.getElementById("addr_form").lat.value = data.documents[0].y
+                console.log(data.documents[0].y);
+
+                let container = document.getElementById('map');
+                container.style.display = 'block';
+                container.style.width = '250px';
+                container.style.height = '200px';
+                let options = {
+                    center: new kakao.maps.LatLng(data.documents[0].y, data.documents[0].x),
+                    level: 3
+                };
+
+                let markerPosition  = new kakao.maps.LatLng(data.documents[0].y, data.documents[0].x);
+
+                let map = new kakao.maps.Map(container, options);
+
+                let marker = new kakao.maps.Marker({
+                    position: markerPosition
+                });
+
+                marker.setMap(map);
+
+            },
+            error : function(e){
+                console.log(e);
+            }
+        })
+    }
+</script>
+</body>
+</html>

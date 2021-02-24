@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/admin/layout.html :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">회원 관리</h1>
+        <p class="mb-4">로드맵의 회원들의 데이터를 관리합니다.</p>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">일반 회원</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <form  class="row" method="get" th:action="@{/admin/member}">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="dataTables_length" id="dataTable_length">
+                                        <label>Show <select name="size" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
+                                            <option th:selected="${pageRequestDTO.getSize() <= 10 || pageRequestDTO.getSize() == null}" value="10">10</option>
+                                            <option th:selected="${pageRequestDTO.getSize() == 25}" value="25">25</option>
+                                            <option th:selected="${pageRequestDTO.getSize() == 50}" value="50">50</option>
+                                            <option th:selected="${pageRequestDTO.getSize() == 100}" value="100">100</option>
+                                        </select> entries</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div id="dataTable_filter" class="dataTables_filter">
+                                        <input th:value="${pageRequestDTO.getKeyword()}" type="search" name="keyword" class="form-control form-control-sm" placeholder="검색어를 입력하세요." aria-controls="dataTable"> <button type="submit" class="btn btn-light">검색</button>
+                                    </div>
+                                </div>
+                            </form>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid">
+                                    <thead>
+                                    <tr>
+                                        <th>회원번호</th>
+                                        <th>닉네임</th>
+                                        <th>이메일</th>
+                                        <th>직업</th>
+                                        <th>가입날짜</th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th>회원번호</th>
+                                        <th>닉네임</th>
+                                        <th>이메일</th>
+                                        <th>직업</th>
+                                        <th>가입날짜</th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <tr th:each="member : ${memberList}">
+                                        <td><a th:href="@{/admin/member/{id}(id = ${member.getId()},page = ${pageRequestDTO.getPage()},size = ${pageRequestDTO.getSize()},keyword=${pageRequestDTO.getKeyword()})}">[[${member.getId()}]]</a></td>
+                                        <td>[[${member.getNickname()}]]</td>
+                                        <td>[[${member.getEmail()}]]</td>
+                                        <td>[[${member.getOccupation()}]]</td>
+                                        <td class="date-weekday-time">[[${member.getJoinedAt()}]]</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5">
+                                <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">전체 [[${pageResultDTO.getTotalPage()}]]개의 페이지 중 [[${pageResultDTO.getPage()}]]번째 페이지</div>
+                            </div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                    <ul class="pagination">
+                                        <li th:if="${pageResultDTO.isPrev()}" class="paginate_button page-item previous disabled" id="dataTable_previous">
+                                            <a th:href="@{/admin/member(page = ${pageResultDTO.getStart()-10}, size = ${pageRequestDTO.getSize()}, keyword = ${pageRequestDTO.getKeyword()})}" aria-controls="dataTable" data-dt-idx="1"  tabindex="0" class="page-link">Previous</a>
+                                        </li>
+                                        <li th:class="'paginate_button page-item ' + ${pageResultDTO.getPage() == page ? 'active' : ''}" th:each="page : ${pageResultDTO.getPageList()}">
+                                            <a th:href="@{/admin/member(page = ${page}, size = ${pageRequestDTO.getSize()}, keyword = ${pageRequestDTO.getKeyword()})}" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">[[${page}]]</a>
+                                        </li>
+                                        <li th:if="${pageResultDTO.isNext()}" class="paginate_button page-item next disabled" id="dataTable_next">
+                                            <a  th:href="@{/admin/member(page = ${pageResultDTO.getStart()+10}, size = ${pageRequestDTO.getSize()}, keyword = ${pageRequestDTO.getKeyword()})}" aria-controls="dataTable" data-dt-idx="1"  tabindex="0" class="page-link">Next</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div th:replace="fragments.html :: date-time"></div>
+        <!-- /.container-fluid -->
+        <!-- Custom scripts for all pages-->
+        <script src="/node_modules/startbootstrap-sb-admin-2/js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+
+        <!--<script src="/node_modules/startbootstrap-sb-admin-2/vendor/datatables/jquery.dataTables.min.js"></script>-->
+        <script src="/node_modules/startbootstrap-sb-admin-2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="/node_modules/startbootstrap-sb-admin-2/js/demo/datatables-demo.js"></script>
+    </th:block>
+</th:block>

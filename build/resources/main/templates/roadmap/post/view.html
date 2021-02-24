@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="fragments.html :: head"></head>
+<body class="bg-light">
+<div th:replace="fragments.html :: main-nav"></div>
+<div class="container">
+
+    <div th:replace="fragments.html :: post-nav"></div>
+    <div class="row px-3 justify-content-center">
+        <!--태그가 섞여있는 텍스트문은 utext로 보여준다.-->
+        <div class="col-10 pt-3" th:utext="${post.content}"></div>
+    </div>
+    <div th:replace="fragments.html :: footer"></div>
+    <div th:if="${post.writer.equals(member)}">
+        <button id="btnModify" class="btn btn-outline-warning">수정</button>
+        <button id="btnRemove" class="btn btn-outline-danger">삭제</button>
+    </div>
+</div>
+<script th:replace="fragments.html :: tooltip"></script>
+<script>
+    const postId = [[${post.id}]];
+    let btnModify = document.querySelector("#btnModify");
+    let btnRemove = document.querySelector("#btnRemove");
+    btnModify.addEventListener("click",(e)=>{
+       e.preventDefault();
+       location.href = "/post/" + postId + "/modify";
+    });
+    btnRemove.addEventListener("click", (e)=>{
+        e.preventDefault();
+        $.ajax({
+            url: "/post/" + postId + "/remove",
+            type: 'POST',
+            success: function (result) {
+                alert(result);
+                console.log(result);
+            },
+            error : function (xhr,status,er) {
+                if(error) {
+                    error(er);
+                }
+            }
+        });
+    });
+</script>
+<div th:replace="fragments.html :: ajax-csrf-header"></div>
+</body>
+</html>

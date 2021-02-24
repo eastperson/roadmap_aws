@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - MemberRepositoryTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>MemberRepositoryTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.roadmap.member.html">com.roadmap.member</a> &gt; MemberRepositoryTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.011s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">memberWithRoadmapsByNickname()</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-02-24 20:33:38.577  INFO 13216 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.roadmap.member.MemberRepositoryTest], using SpringBootContextLoader
+2021-02-24 20:33:38.578  INFO 13216 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.roadmap.member.MemberRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-02-24 20:33:38.578  INFO 13216 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.roadmap.member.MemberRepositoryTest]: MemberRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-02-24 20:33:38.580  INFO 13216 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.roadmap.CoreApplication for test class com.roadmap.member.MemberRepositoryTest
+2021-02-24 20:33:38.581  INFO 13216 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-02-24 20:33:38.582  INFO 13216 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@8b8a5a7, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@a0cc0dc, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4fcb1c52, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3f8555f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4e204d1a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@22467e22, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3578cfb4, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@746b26e9, org.springframework.test.context.event.EventPublishingTestExecutionListener@38efede3, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@29c933b2, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5abf4c50, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@774e6580, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@30891e7f, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@503def7f, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@70c0e4e4, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@74a6fd19]
+2021-02-24 20:33:38.586  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@33dd3fe8 testClass = MemberRepositoryTest, testInstance = com.roadmap.member.MemberRepositoryTest@44cd0ab3, testMethod = memberWithRoadmapsByNickname@MemberRepositoryTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7407906 testClass = MemberRepositoryTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@306f62a6]; rollback [true]
+2021-02-24 20:33:38.589 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_0_,
+        roadmap2_.id as id1_14_1_,
+        member0_.moddate as moddate2_3_0_,
+        member0_.regdate as regdate3_3_0_,
+        member0_.bio as bio4_3_0_,
+        member0_.email as email5_3_0_,
+        member0_.email_check_token as email_ch6_3_0_,
+        member0_.email_check_token_generated_at as email_ch7_3_0_,
+        member0_.email_verified as email_ve8_3_0_,
+        member0_.from_social as from_soc9_3_0_,
+        member0_.joined_at as joined_10_3_0_,
+        member0_.loc_id as loc_id22_3_0_,
+        member0_.nickname as nicknam11_3_0_,
+        member0_.occupation as occupat12_3_0_,
+        member0_.password as passwor13_3_0_,
+        member0_.profile_image as profile14_3_0_,
+        member0_.roadmap_created_by_email as roadmap15_3_0_,
+        member0_.roadmap_created_by_web as roadmap16_3_0_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_0_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_0_,
+        member0_.roadmap_updated_by_email as roadmap19_3_0_,
+        member0_.roadmap_updated_by_web as roadmap20_3_0_,
+        member0_.url as url21_3_0_,
+        roadmap2_.moddate as moddate2_14_1_,
+        roadmap2_.regdate as regdate3_14_1_,
+        roadmap2_.closed as closed4_14_1_,
+        roadmap2_.closed_date_time as closed_d5_14_1_,
+        roadmap2_.complete as complete6_14_1_,
+        roadmap2_.full_description as full_des7_14_1_,
+        roadmap2_.image as image8_14_1_,
+        roadmap2_.milestone as mileston9_14_1_,
+        roadmap2_.owner_id as owner_i19_14_1_,
+        roadmap2_.path as path10_14_1_,
+        roadmap2_.progress as progres11_14_1_,
+        roadmap2_.published as publish12_14_1_,
+        roadmap2_.published_date_time as publish13_14_1_,
+        roadmap2_.recruiting as recruit14_14_1_,
+        roadmap2_.recruiting_updated_date_time as recruit15_14_1_,
+        roadmap2_.short_description as short_d16_14_1_,
+        roadmap2_.title as title17_14_1_,
+        roadmap2_.use_banner as use_ban18_14_1_,
+        roadmaps1_.members_id as members_2_15_0__,
+        roadmaps1_.roadmaps_id as roadmaps1_15_0__ 
+    from
+        member member0_ 
+    left outer join
+        roadmap_members roadmaps1_ 
+            on member0_.id=roadmaps1_.members_id 
+    left outer join
+        roadmap roadmap2_ 
+            on roadmaps1_.roadmaps_id=roadmap2_.id 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:38.589 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [kjuioq@nate.com]
+2021-02-24 20:33:38.595  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@33dd3fe8 testClass = MemberRepositoryTest, testInstance = com.roadmap.member.MemberRepositoryTest@44cd0ab3, testMethod = memberWithRoadmapsByNickname@MemberRepositoryTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7407906 testClass = MemberRepositoryTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.7</a> at 2021. 2. 24. 오후 8:33:52</p>
+</div>
+</div>
+</body>
+</html>

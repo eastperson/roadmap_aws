@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head"></head>
+<body class="bg-light">
+<div th:replace="fragments.html :: main-nav"></div>
+<div th:replace="fragments.html :: roadmap-banner"></div>
+
+<div class="container">
+    <div th:replace="fragments.html :: event-form(mode='new',action='/roadmap/' + ${roadmap.path} + '/new-event')"></div>
+    <div class="fragments.html :: footer"></div>
+</div>
+<script th:replace="fragments.html :: form-validation"></script>
+<script th:replace="fragments.html :: editor-script"></script>
+</body>
+</html>

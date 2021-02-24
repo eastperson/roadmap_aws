@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head"></head>
+<body class="bg-light">
+<div th:replace="fragments.html :: main-nav"></div>
+<div th:replace="fragments.html :: roadmap-banner"></div>
+
+<div class="container">
+    <div th:replace="fragments.html :: roadmap-info"></div>
+    <div th:replace="fragments.html :: roadmap-menu(roadmapMenu='settings')"></div>
+    <div class="row mt-3 justify-content-center">
+        <div class="col-2">
+            <div th:replace="fragments.html :: roadmap-settings-menu (currentMenu='image')"></div>
+        </div>
+        <div class="col-8">
+            <div th:replace="fragments.html :: message"></div>
+            <div class="row">
+                <h2 class="col-sm-12">배너 이미지 사용</h2>
+            </div>
+            <form th:if="${!roadmap.useBanner}" action="#" th:action="@{'/roadmap/' + ${roadmap.getPath()} + '/settings/banner/enable'}" method="post" novalidate>
+                <div class="alert alert-primary" role="alert">
+                    스터디 메뉴에서 스터디 배너 이미지를 사용합니다. 스터디 배너 이미지를 아직 설정하지 않았다면, 기본 배너 이미지를 사용합니다.
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-outline-primary btn-block" type="submit" aria-describedby="submitHelp">배너 이미지 사용하기</button>
+                </div>
+            </form>
+            <form th:if="${roadmap.useBanner}" action="#" th:action="@{'/roadmap/' + ${roadmap.getPath()} + '/settings/banner/disable'}" method="post" novalidate>
+                <div class="alert alert-info" role="alert">
+                    로드맵 메뉴에서 스터디 배너 이미지를 사용하지 않습니다. 로드맵 목록에서는 배너 이미지를 사용합니다.
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-outline-primary btn-block" type="submit" aria-describedby="submitHelp">배너 이미지 사용하지 않기</button>
+                </div>
+            </form>
+            <hr/>
+            <div class="row">
+                <h2 class="col-sm-12">배너 이미지 변경</h2>
+            </div>
+            <form id="imageForm" action="#" th:action="@{'/roadmap/' + ${roadmap.getPath()} + '/settings/banner'}" method="post" novalidate>
+                <div class="form-group">
+                    <input id="roadmapImage" type="hidden" name="image" class="form-control" />
+                </div>
+            </form>
+            <div class="card text-center">
+                <div id="current-roadmap-image" class="mt-3">
+                    <img class="rounded" th:src="${roadmap.image}" width="640" alt="name" th:alt="${roadmap.title}"/>
+                </div>
+                <div id="new-roadmap-image" class="mt-3"></div>
+                <div class="card-body">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="roadmap-image-file">
+                        <label class="custom-file-label" for="roadmap-image-file">로드맵 이미지 변경</label>
+                    </div>
+                    <div id="new-roadmap-image-control" class="mt-3">
+                        <button class="btn btn-outline-primary btn-block" id="cut-button">자르기</button>
+                        <button class="btn btn-outline-success btn-block" id="confirm-button">확인</button>
+                        <button class="btn btn-primary btn-block" id="save-button">저장</button>
+                        <button class="btn btn-outline-warning btn-block" id="reset-button">취소</button>
+                    </div>
+                    <div id="cropped-new-roadmap-image" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments.html :: footer"></div>
+</div>
+<script th:replace="fragments.html :: tooltip"></script>
+<link  href="/node_modules/cropper/dist/cropper.min.css" rel="stylesheet">
+<script src="/node_modules/cropper/dist/cropper.min.js"></script>
+<script src="/node_modules/jquery-cropper/dist/jquery-cropper.min.js"></script>
+<script type="application/javascript">
+    $(function() {
+        cropper = '';
+        let $confirmBtn = $("#confirm-button");
+        let $resetBtn = $("#reset-button");
+        let $cutBtn = $("#cut-button");
+        let $saveBtn = $("#save-button");
+        let $newRoadmapImage = $("#new-roadmap-image");
+        let $currentRoadmapImage = $("#current-roadmap-image");
+        let $resultImage = $("#cropped-new-roadmap-image");
+        let $roadmapImage = $("#roadmapImage");
+
+        $newRoadmapImage.hide();
+        $cutBtn.hide();
+        $resetBtn.hide();
+        $confirmBtn.hide();
+        $saveBtn.hide();
+
+        $("#roadmap-image-file").change(function(e) {
+            if (e.target.files.length === 1) {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    if (e.target.result) {
+                        if (!e.target.result.startsWith("data:image")) {
+                            alert("이미지 파일을 선택하세요.");
+                            return;
+                        }
+
+                        let img = document.createElement("img");
+                        img.id = 'new-roadmap';
+                        img.src = e.target.result;
+                        img.setAttribute('width', '100%');
+
+                        $newRoadmapImage.html(img);
+                        $newRoadmapImage.show();
+                        $currentRoadmapImage.hide();
+
+                        let $newImage = $(img);
+                        $newImage.cropper({aspectRatio: 13/2});
+                        cropper = $newImage.data('cropper');
+
+                        $cutBtn.show();
+                        $confirmBtn.hide();
+                        $resetBtn.show();
+                    }
+                };
+
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        $resetBtn.click(function() {
+            $currentRoadmapImage.show();
+            $newRoadmapImage.hide();
+            $resultImage.hide();
+            $resetBtn.hide();
+            $cutBtn.hide();
+            $confirmBtn.hide();
+            $saveBtn.hide();
+            $roadmapImage.val('');
+        });
+
+        $cutBtn.click(function () {
+            let dataUrl = cropper.getCroppedCanvas().toDataURL();
+
+            if (dataUrl.length > 1000 * 1024) {
+                alert("이미지 파일이 너무 큽니다. 1024000 보다 작은 파일을 사용하세요. 현재 이미지 사이즈 " + dataUrl.length);
+                return;
+            }
+
+            let newImage = document.createElement("img");
+            newImage.id = "cropped-new-roadmap-image";
+            newImage.src = dataUrl;
+            newImage.width = 640;
+            $resultImage.html(newImage);
+            $resultImage.show();
+            $confirmBtn.show();
+
+            $confirmBtn.click(function () {
+                $newRoadmapImage.html(newImage);
+                $cutBtn.hide();
+                $confirmBtn.hide();
+                $roadmapImage.val(dataUrl);
+                $saveBtn.show();
+            });
+        });
+
+        $saveBtn.click(function() {
+            $("#imageForm").submit();
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - PostControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>PostControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.roadmap.post.html">com.roadmap.post</a> &gt; PostControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.804s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">80%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="newPostAddTag_correct()"></a>
+<h3 class="failures">포스트 태그 추가_입력값 정상</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;400&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:627)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:196)
+	at com.roadmap.post.PostControllerTest.newPostAddTag_correct(PostControllerTest.java:221)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:212)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:208)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:71)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:132)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:133)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">포스트 태그 추가_입력값 정상</td>
+<td class="failures">newPostAddTag_correct()</td>
+<td class="failures">0.130s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">포스트 생성 제출 - 입력값 정상</td>
+<td class="success">newPostFormSubmit_correct()</td>
+<td class="success">0.128s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">포스트 생성 제출 - 입력값 에러</td>
+<td class="success">newPostFormSubmit_error()</td>
+<td class="success">0.158s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">포스트 생성</td>
+<td class="success">newPostFormView()</td>
+<td class="success">0.229s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">포스트 확인</td>
+<td class="success">newPostView()</td>
+<td class="success">0.159s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-02-24 20:33:41.470  INFO 13216 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.roadmap.post.PostControllerTest], using SpringBootContextLoader
+2021-02-24 20:33:41.471  INFO 13216 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.roadmap.post.PostControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-02-24 20:33:41.471  INFO 13216 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.roadmap.post.PostControllerTest]: PostControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-02-24 20:33:41.481  INFO 13216 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.roadmap.CoreApplication for test class com.roadmap.post.PostControllerTest
+2021-02-24 20:33:41.483  INFO 13216 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-02-24 20:33:41.484  INFO 13216 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@301497f3, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@18e2cf3c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@438ec3ff, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7d8d29c6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6932828b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@67273bbe, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@52838d9e, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@46544d11, org.springframework.test.context.event.EventPublishingTestExecutionListener@3b8fa98a, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@65ab9f8e, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2b8a11d8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4fd2ed7d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@957def4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@30b967bf, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4bc6a4a1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@13a701a1]
+2021-02-24 20:33:41.488  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@33d14a73 testClass = PostControllerTest, testInstance = com.roadmap.post.PostControllerTest@50b7876, testMethod = newPostFormView@PostControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@40565763 testClass = PostControllerTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, [ImportsContextCustomizer@7c4b21bc key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@25169dd]; rollback [true]
+2021-02-24 20:33:41.568  INFO 13216 --- [    Test worker] com.roadmap.service.MemberService        : email send signup confirm Email link : /check-email-token?token=64d09751-43b9-4a1f-8637-97043cc5a206&amp;email=epepep@email.com
+2021-02-24 20:33:41.568 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        nextval ('hibernate_sequence')
+2021-02-24 20:33:41.570 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (moddate, regdate, bio, email, email_check_token, email_check_token_generated_at, email_verified, from_social, joined_at, loc_id, nickname, occupation, password, profile_image, roadmap_created_by_email, roadmap_created_by_web, roadmap_enrollment_result_by_email, roadmap_enrollment_result_by_web, roadmap_updated_by_email, roadmap_updated_by_web, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.568339100]
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.568339100]
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [epepep@email.com]
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [64d09751-43b9-4a1f-8637-97043cc5a206]
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [TIMESTAMP] - [2021-02-24T20:33:41.568339100]
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2021-02-24T20:33:41.568339100]
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [null]
+2021-02-24 20:33:41.570 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [12] as [VARCHAR] - [null]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [13] as [VARCHAR] - [{bcrypt}$2a$10$VnClAybefkspsuaDL17WAOCukAYy8OOgBKFcIJcuZA6xtVJzxNj5i]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [14] as [CLOB] - [null]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [15] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [16] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [17] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [18] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [19] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [20] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [21] as [VARCHAR] - [null]
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [22] as [BIGINT] - [2777]
+2021-02-24 20:33:41.571 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member_role_set
+        (member_id, role_set) 
+    values
+        (?, ?)
+2021-02-24 20:33:41.571 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2777]
+2021-02-24 20:33:41.572 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [USER]
+2021-02-24 20:33:41.572 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2021-02-24 20:33:41.572 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.573 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.573 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.578 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.578 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.590 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_0_,
+        roadmap2_.id as id1_14_1_,
+        member0_.moddate as moddate2_3_0_,
+        member0_.regdate as regdate3_3_0_,
+        member0_.bio as bio4_3_0_,
+        member0_.email as email5_3_0_,
+        member0_.email_check_token as email_ch6_3_0_,
+        member0_.email_check_token_generated_at as email_ch7_3_0_,
+        member0_.email_verified as email_ve8_3_0_,
+        member0_.from_social as from_soc9_3_0_,
+        member0_.joined_at as joined_10_3_0_,
+        member0_.loc_id as loc_id22_3_0_,
+        member0_.nickname as nicknam11_3_0_,
+        member0_.occupation as occupat12_3_0_,
+        member0_.password as passwor13_3_0_,
+        member0_.profile_image as profile14_3_0_,
+        member0_.roadmap_created_by_email as roadmap15_3_0_,
+        member0_.roadmap_created_by_web as roadmap16_3_0_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_0_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_0_,
+        member0_.roadmap_updated_by_email as roadmap19_3_0_,
+        member0_.roadmap_updated_by_web as roadmap20_3_0_,
+        member0_.url as url21_3_0_,
+        roadmap2_.moddate as moddate2_14_1_,
+        roadmap2_.regdate as regdate3_14_1_,
+        roadmap2_.closed as closed4_14_1_,
+        roadmap2_.closed_date_time as closed_d5_14_1_,
+        roadmap2_.complete as complete6_14_1_,
+        roadmap2_.full_description as full_des7_14_1_,
+        roadmap2_.image as image8_14_1_,
+        roadmap2_.milestone as mileston9_14_1_,
+        roadmap2_.owner_id as owner_i19_14_1_,
+        roadmap2_.path as path10_14_1_,
+        roadmap2_.progress as progres11_14_1_,
+        roadmap2_.published as publish12_14_1_,
+        roadmap2_.published_date_time as publish13_14_1_,
+        roadmap2_.recruiting as recruit14_14_1_,
+        roadmap2_.recruiting_updated_date_time as recruit15_14_1_,
+        roadmap2_.short_description as short_d16_14_1_,
+        roadmap2_.title as title17_14_1_,
+        roadmap2_.use_banner as use_ban18_14_1_,
+        roadmaps1_.members_id as members_2_15_0__,
+        roadmaps1_.roadmaps_id as roadmaps1_15_0__ 
+    from
+        member member0_ 
+    left outer join
+        roadmap_members roadmaps1_ 
+            on member0_.id=roadmaps1_.members_id 
+    left outer join
+        roadmap roadmap2_ 
+            on roadmaps1_.roadmaps_id=roadmap2_.id 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.590 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.605 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap
+        (moddate, regdate, closed, closed_date_time, complete, full_description, image, milestone, owner_id, path, progress, published, published_date_time, recruiting, recruiting_updated_date_time, short_description, title, use_banner) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.605 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.599344400]
+2021-02-24 20:33:41.605 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.599344400]
+2021-02-24 20:33:41.605 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.605 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.605 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.605 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [CLOB] - [full description]
+2021-02-24 20:33:41.606 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [CLOB] - [null]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [2777]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [/path]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [DOUBLE] - [null]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [12] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [13] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [14] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [15] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [16] as [VARCHAR] - [short description]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [17] as [VARCHAR] - [title]
+2021-02-24 20:33:41.607 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [18] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.625 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        stage
+        (moddate, regdate, complete, head, ord, roadmap_id, tail, title) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.625 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.619349800]
+2021-02-24 20:33:41.625 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.619349800]
+2021-02-24 20:33:41.625 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.625 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.626 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
+2021-02-24 20:33:41.626 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [431]
+2021-02-24 20:33:41.627 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.627 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [1단계]
+2021-02-24 20:33:41.648 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        node
+        (moddate, regdate, complete, node_type, parent_id, read, short_description, stage_id, text, title, url) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.643341600]
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.643341600]
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [post]
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BIGINT] - [218]
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [VARCHAR] - [null]
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [노드 제목]
+2021-02-24 20:33:41.648 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [VARCHAR] - [null]
+2021-02-24 20:33:41.655  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : REQUESTURI : /new-post/207
+2021-02-24 20:33:41.655  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : false
+2021-02-24 20:33:41.664 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        post0_.id as id1_11_,
+        post0_.content as content2_11_,
+        post0_.description as descript3_11_,
+        post0_.node_id as node_id5_11_,
+        post0_.title as title4_11_,
+        post0_.writer_id as writer_i6_11_ 
+    from
+        post post0_ 
+    left outer join
+        node node1_ 
+            on post0_.node_id=node1_.id 
+    where
+        node1_.id=?
+2021-02-24 20:33:41.665 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [207]
+2021-02-24 20:33:41.675 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        post
+        (content, description, node_id, title, writer_id) 
+    values
+        (?, ?, ?, ?, ?)
+2021-02-24 20:33:41.676 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [CLOB] - [null]
+2021-02-24 20:33:41.676 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2021-02-24 20:33:41.676 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [207]
+2021-02-24 20:33:41.676 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [null]
+2021-02-24 20:33:41.676 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2021-02-24 20:33:41.680 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        tag0_.id as id1_21_,
+        tag0_.moddate as moddate2_21_,
+        tag0_.regdate as regdate3_21_,
+        tag0_.title as title4_21_ 
+    from
+        tag tag0_
+2021-02-24 20:33:41.712 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        post0_.id as id1_11_,
+        post0_.content as content2_11_,
+        post0_.description as descript3_11_,
+        post0_.node_id as node_id5_11_,
+        post0_.title as title4_11_,
+        post0_.writer_id as writer_i6_11_ 
+    from
+        post post0_ 
+    left outer join
+        node node1_ 
+            on post0_.node_id=node1_.id 
+    where
+        node1_.id=?
+2021-02-24 20:33:41.712 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [207]
+2021-02-24 20:33:41.717  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@33d14a73 testClass = PostControllerTest, testInstance = com.roadmap.post.PostControllerTest@50b7876, testMethod = newPostFormView@PostControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@40565763 testClass = PostControllerTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, [ImportsContextCustomizer@7c4b21bc key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]
+2021-02-24 20:33:41.719  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@33d14a73 testClass = PostControllerTest, testInstance = com.roadmap.post.PostControllerTest@2a9f3b04, testMethod = newPostFormSubmit_correct@PostControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@40565763 testClass = PostControllerTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, [ImportsContextCustomizer@7c4b21bc key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@25169dd]; rollback [true]
+2021-02-24 20:33:41.792  INFO 13216 --- [    Test worker] com.roadmap.service.MemberService        : email send signup confirm Email link : /check-email-token?token=249a4de1-4342-45f9-9d18-f6795f0b9c41&amp;email=epepep@email.com
+2021-02-24 20:33:41.792 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        nextval ('hibernate_sequence')
+2021-02-24 20:33:41.793 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (moddate, regdate, bio, email, email_check_token, email_check_token_generated_at, email_verified, from_social, joined_at, loc_id, nickname, occupation, password, profile_image, roadmap_created_by_email, roadmap_created_by_web, roadmap_enrollment_result_by_email, roadmap_enrollment_result_by_web, roadmap_updated_by_email, roadmap_updated_by_web, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.793 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.792368300]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.792368300]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [epepep@email.com]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [249a4de1-4342-45f9-9d18-f6795f0b9c41]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [TIMESTAMP] - [2021-02-24T20:33:41.792368300]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2021-02-24T20:33:41.792368300]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [null]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [12] as [VARCHAR] - [null]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [13] as [VARCHAR] - [{bcrypt}$2a$10$DRfXCCfnq0mEPrfjED.lUuAeK8DLTKsthlxS.tgObRGLjAHZZZwTu]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [14] as [CLOB] - [null]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [15] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [16] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [17] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [18] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [19] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [20] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [21] as [VARCHAR] - [null]
+2021-02-24 20:33:41.794 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [22] as [BIGINT] - [2778]
+2021-02-24 20:33:41.795 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member_role_set
+        (member_id, role_set) 
+    values
+        (?, ?)
+2021-02-24 20:33:41.795 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2778]
+2021-02-24 20:33:41.795 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [USER]
+2021-02-24 20:33:41.795 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2021-02-24 20:33:41.795 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.796 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.796 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.798 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.798 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.800 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_0_,
+        roadmap2_.id as id1_14_1_,
+        member0_.moddate as moddate2_3_0_,
+        member0_.regdate as regdate3_3_0_,
+        member0_.bio as bio4_3_0_,
+        member0_.email as email5_3_0_,
+        member0_.email_check_token as email_ch6_3_0_,
+        member0_.email_check_token_generated_at as email_ch7_3_0_,
+        member0_.email_verified as email_ve8_3_0_,
+        member0_.from_social as from_soc9_3_0_,
+        member0_.joined_at as joined_10_3_0_,
+        member0_.loc_id as loc_id22_3_0_,
+        member0_.nickname as nicknam11_3_0_,
+        member0_.occupation as occupat12_3_0_,
+        member0_.password as passwor13_3_0_,
+        member0_.profile_image as profile14_3_0_,
+        member0_.roadmap_created_by_email as roadmap15_3_0_,
+        member0_.roadmap_created_by_web as roadmap16_3_0_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_0_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_0_,
+        member0_.roadmap_updated_by_email as roadmap19_3_0_,
+        member0_.roadmap_updated_by_web as roadmap20_3_0_,
+        member0_.url as url21_3_0_,
+        roadmap2_.moddate as moddate2_14_1_,
+        roadmap2_.regdate as regdate3_14_1_,
+        roadmap2_.closed as closed4_14_1_,
+        roadmap2_.closed_date_time as closed_d5_14_1_,
+        roadmap2_.complete as complete6_14_1_,
+        roadmap2_.full_description as full_des7_14_1_,
+        roadmap2_.image as image8_14_1_,
+        roadmap2_.milestone as mileston9_14_1_,
+        roadmap2_.owner_id as owner_i19_14_1_,
+        roadmap2_.path as path10_14_1_,
+        roadmap2_.progress as progres11_14_1_,
+        roadmap2_.published as publish12_14_1_,
+        roadmap2_.published_date_time as publish13_14_1_,
+        roadmap2_.recruiting as recruit14_14_1_,
+        roadmap2_.recruiting_updated_date_time as recruit15_14_1_,
+        roadmap2_.short_description as short_d16_14_1_,
+        roadmap2_.title as title17_14_1_,
+        roadmap2_.use_banner as use_ban18_14_1_,
+        roadmaps1_.members_id as members_2_15_0__,
+        roadmaps1_.roadmaps_id as roadmaps1_15_0__ 
+    from
+        member member0_ 
+    left outer join
+        roadmap_members roadmaps1_ 
+            on member0_.id=roadmaps1_.members_id 
+    left outer join
+        roadmap roadmap2_ 
+            on roadmaps1_.roadmaps_id=roadmap2_.id 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.800 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.802 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap
+        (moddate, regdate, closed, closed_date_time, complete, full_description, image, milestone, owner_id, path, progress, published, published_date_time, recruiting, recruiting_updated_date_time, short_description, title, use_banner) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.802 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.802362700]
+2021-02-24 20:33:41.802 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.802362700]
+2021-02-24 20:33:41.802 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.802 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.802 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.802 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [CLOB] - [full description]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [CLOB] - [null]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [2778]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [/path]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [DOUBLE] - [null]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [12] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [13] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [14] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [15] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [16] as [VARCHAR] - [short description]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [17] as [VARCHAR] - [title]
+2021-02-24 20:33:41.803 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [18] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.804 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        stage
+        (moddate, regdate, complete, head, ord, roadmap_id, tail, title) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.804 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.804339800]
+2021-02-24 20:33:41.804 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.804339800]
+2021-02-24 20:33:41.805 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.805 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.805 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
+2021-02-24 20:33:41.805 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [432]
+2021-02-24 20:33:41.805 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.805 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [1단계]
+2021-02-24 20:33:41.806 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        node
+        (moddate, regdate, complete, node_type, parent_id, read, short_description, stage_id, text, title, url) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.805344]
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.805344]
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [post]
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BIGINT] - [219]
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [VARCHAR] - [null]
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [노드 제목]
+2021-02-24 20:33:41.806 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [VARCHAR] - [null]
+2021-02-24 20:33:41.808  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : REQUESTURI : /new-post/208
+2021-02-24 20:33:41.808  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : false
+2021-02-24 20:33:41.810 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        post0_.id as id1_11_,
+        post0_.content as content2_11_,
+        post0_.description as descript3_11_,
+        post0_.node_id as node_id5_11_,
+        post0_.title as title4_11_,
+        post0_.writer_id as writer_i6_11_ 
+    from
+        post post0_ 
+    left outer join
+        node node1_ 
+            on post0_.node_id=node1_.id 
+    where
+        node1_.id=?
+2021-02-24 20:33:41.810 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [208]
+2021-02-24 20:33:41.812 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        post
+        (content, description, node_id, title, writer_id) 
+    values
+        (?, ?, ?, ?, ?)
+2021-02-24 20:33:41.812 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [CLOB] - [null]
+2021-02-24 20:33:41.812 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2021-02-24 20:33:41.812 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [208]
+2021-02-24 20:33:41.812 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [null]
+2021-02-24 20:33:41.812 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2021-02-24 20:33:41.813 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        tag0_.id as id1_21_,
+        tag0_.moddate as moddate2_21_,
+        tag0_.regdate as regdate3_21_,
+        tag0_.title as title4_21_ 
+    from
+        tag tag0_
+2021-02-24 20:33:41.821  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : REQUESTURI : /new-post/208
+2021-02-24 20:33:41.821  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : false
+2021-02-24 20:33:41.825 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        post0_.id as id1_11_,
+        post0_.content as content2_11_,
+        post0_.description as descript3_11_,
+        post0_.node_id as node_id5_11_,
+        post0_.title as title4_11_,
+        post0_.writer_id as writer_i6_11_ 
+    from
+        post post0_ 
+    left outer join
+        node node1_ 
+            on post0_.node_id=node1_.id 
+    where
+        node1_.id=?
+2021-02-24 20:33:41.825 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [208]
+2021-02-24 20:33:41.828 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.828 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.830 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    update
+        post 
+    set
+        content=?,
+        description=?,
+        node_id=?,
+        title=?,
+        writer_id=? 
+    where
+        id=?
+2021-02-24 20:33:41.830 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [CLOB] - [내용]
+2021-02-24 20:33:41.831 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [설명]
+2021-02-24 20:33:41.831 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [208]
+2021-02-24 20:33:41.831 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [제목]
+2021-02-24 20:33:41.831 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [2778]
+2021-02-24 20:33:41.831 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [33]
+2021-02-24 20:33:41.832 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member_posts
+        (member_id, posts_id) 
+    values
+        (?, ?)
+2021-02-24 20:33:41.832 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2778]
+2021-02-24 20:33:41.832 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [33]
+2021-02-24 20:33:41.835 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap_members
+        (roadmaps_id, members_id) 
+    values
+        (?, ?)
+2021-02-24 20:33:41.835 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [432]
+2021-02-24 20:33:41.836 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [2778]
+2021-02-24 20:33:41.837 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap_stage_list
+        (roadmap_id, stage_list_id) 
+    values
+        (?, ?)
+2021-02-24 20:33:41.838 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [432]
+2021-02-24 20:33:41.838 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [219]
+2021-02-24 20:33:41.842 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        post0_.id as id1_11_,
+        post0_.content as content2_11_,
+        post0_.description as descript3_11_,
+        post0_.node_id as node_id5_11_,
+        post0_.title as title4_11_,
+        post0_.writer_id as writer_i6_11_ 
+    from
+        post post0_ 
+    left outer join
+        node node1_ 
+            on post0_.node_id=node1_.id 
+    where
+        node1_.id=?
+2021-02-24 20:33:41.842 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [208]
+2021-02-24 20:33:41.845  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@33d14a73 testClass = PostControllerTest, testInstance = com.roadmap.post.PostControllerTest@2a9f3b04, testMethod = newPostFormSubmit_correct@PostControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@40565763 testClass = PostControllerTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, [ImportsContextCustomizer@7c4b21bc key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]
+2021-02-24 20:33:41.847  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@33d14a73 testClass = PostControllerTest, testInstance = com.roadmap.post.PostControllerTest@46fb1fde, testMethod = newPostAddTag_correct@PostControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@40565763 testClass = PostControllerTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, [ImportsContextCustomizer@7c4b21bc key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@25169dd]; rollback [true]
+2021-02-24 20:33:41.918  INFO 13216 --- [    Test worker] com.roadmap.service.MemberService        : email send signup confirm Email link : /check-email-token?token=195de8d7-8691-441d-8bd3-c7053eb29194&amp;email=epepep@email.com
+2021-02-24 20:33:41.919 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        nextval ('hibernate_sequence')
+2021-02-24 20:33:41.920 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (moddate, regdate, bio, email, email_check_token, email_check_token_generated_at, email_verified, from_social, joined_at, loc_id, nickname, occupation, password, profile_image, roadmap_created_by_email, roadmap_created_by_web, roadmap_enrollment_result_by_email, roadmap_enrollment_result_by_web, roadmap_updated_by_email, roadmap_updated_by_web, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.919343800]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.919343800]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [epepep@email.com]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [195de8d7-8691-441d-8bd3-c7053eb29194]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [TIMESTAMP] - [2021-02-24T20:33:41.918373800]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2021-02-24T20:33:41.918373800]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [null]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [12] as [VARCHAR] - [null]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [13] as [VARCHAR] - [{bcrypt}$2a$10$QmrTwbKjAk8CLTd5pbbeZ..hW60GUe4i0a9dQL0hQ8TB3kAszb3Xu]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [14] as [CLOB] - [null]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [15] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [16] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [17] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [18] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [19] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [20] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [21] as [VARCHAR] - [null]
+2021-02-24 20:33:41.920 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [22] as [BIGINT] - [2779]
+2021-02-24 20:33:41.921 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member_role_set
+        (member_id, role_set) 
+    values
+        (?, ?)
+2021-02-24 20:33:41.921 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2779]
+2021-02-24 20:33:41.921 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [USER]
+2021-02-24 20:33:41.921 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2021-02-24 20:33:41.921 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.922 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.922 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.924 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.924 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.926 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_0_,
+        roadmap2_.id as id1_14_1_,
+        member0_.moddate as moddate2_3_0_,
+        member0_.regdate as regdate3_3_0_,
+        member0_.bio as bio4_3_0_,
+        member0_.email as email5_3_0_,
+        member0_.email_check_token as email_ch6_3_0_,
+        member0_.email_check_token_generated_at as email_ch7_3_0_,
+        member0_.email_verified as email_ve8_3_0_,
+        member0_.from_social as from_soc9_3_0_,
+        member0_.joined_at as joined_10_3_0_,
+        member0_.loc_id as loc_id22_3_0_,
+        member0_.nickname as nicknam11_3_0_,
+        member0_.occupation as occupat12_3_0_,
+        member0_.password as passwor13_3_0_,
+        member0_.profile_image as profile14_3_0_,
+        member0_.roadmap_created_by_email as roadmap15_3_0_,
+        member0_.roadmap_created_by_web as roadmap16_3_0_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_0_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_0_,
+        member0_.roadmap_updated_by_email as roadmap19_3_0_,
+        member0_.roadmap_updated_by_web as roadmap20_3_0_,
+        member0_.url as url21_3_0_,
+        roadmap2_.moddate as moddate2_14_1_,
+        roadmap2_.regdate as regdate3_14_1_,
+        roadmap2_.closed as closed4_14_1_,
+        roadmap2_.closed_date_time as closed_d5_14_1_,
+        roadmap2_.complete as complete6_14_1_,
+        roadmap2_.full_description as full_des7_14_1_,
+        roadmap2_.image as image8_14_1_,
+        roadmap2_.milestone as mileston9_14_1_,
+        roadmap2_.owner_id as owner_i19_14_1_,
+        roadmap2_.path as path10_14_1_,
+        roadmap2_.progress as progres11_14_1_,
+        roadmap2_.published as publish12_14_1_,
+        roadmap2_.published_date_time as publish13_14_1_,
+        roadmap2_.recruiting as recruit14_14_1_,
+        roadmap2_.recruiting_updated_date_time as recruit15_14_1_,
+        roadmap2_.short_description as short_d16_14_1_,
+        roadmap2_.title as title17_14_1_,
+        roadmap2_.use_banner as use_ban18_14_1_,
+        roadmaps1_.members_id as members_2_15_0__,
+        roadmaps1_.roadmaps_id as roadmaps1_15_0__ 
+    from
+        member member0_ 
+    left outer join
+        roadmap_members roadmaps1_ 
+            on member0_.id=roadmaps1_.members_id 
+    left outer join
+        roadmap roadmap2_ 
+            on roadmaps1_.roadmaps_id=roadmap2_.id 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.926 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.929 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap
+        (moddate, regdate, closed, closed_date_time, complete, full_description, image, milestone, owner_id, path, progress, published, published_date_time, recruiting, recruiting_updated_date_time, short_description, title, use_banner) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.929 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.928343300]
+2021-02-24 20:33:41.929 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.928343300]
+2021-02-24 20:33:41.929 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.929 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.929 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.929 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [CLOB] - [full description]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [CLOB] - [null]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [2779]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [/path]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [DOUBLE] - [null]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [12] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [13] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [14] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [15] as [TIMESTAMP] - [null]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [16] as [VARCHAR] - [short description]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [17] as [VARCHAR] - [title]
+2021-02-24 20:33:41.930 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [18] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.932 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        stage
+        (moddate, regdate, complete, head, ord, roadmap_id, tail, title) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.932 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.931341200]
+2021-02-24 20:33:41.932 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.931341200]
+2021-02-24 20:33:41.932 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.932 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.932 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
+2021-02-24 20:33:41.932 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [433]
+2021-02-24 20:33:41.932 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BOOLEAN] - [true]
+2021-02-24 20:33:41.932 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [1단계]
+2021-02-24 20:33:41.934 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        node
+        (moddate, regdate, complete, node_type, parent_id, read, short_description, stage_id, text, title, url) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:41.933341100]
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:41.933341100]
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [post]
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BOOLEAN] - [false]
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BIGINT] - [220]
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [VARCHAR] - [null]
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [노드 제목]
+2021-02-24 20:33:41.934 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [VARCHAR] - [null]
+2021-02-24 20:33:41.935 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.936 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.936 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        post
+        (content, description, node_id, title, writer_id) 
+    values
+        (?, ?, ?, ?, ?)
+2021-02-24 20:33:41.937 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [CLOB] - [null]
+2021-02-24 20:33:41.937 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2021-02-24 20:33:41.937 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [209]
+2021-02-24 20:33:41.937 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [null]
+2021-02-24 20:33:41.937 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2021-02-24 20:33:41.938 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:41.938 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:41.940  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : REQUESTURI : /new-post/209
+2021-02-24 20:33:41.940  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : false
+2021-02-24 20:33:41.943 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    update
+        post 
+    set
+        content=?,
+        description=?,
+        node_id=?,
+        title=?,
+        writer_id=? 
+    where
+        id=?
+2021-02-24 20:33:41.943 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [CLOB] - [포스트 내용]
+2021-02-24 20:33:41.944 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [포스트 설명]
+2021-02-24 20:33:41.944 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [209]
+2021-02-24 20:33:41.944 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [포스트 제목]
+2021-02-24 20:33:41.944 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [2779]
+2021-02-24 20:33:41.944 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [34]
+2021-02-24 20:33:41.945 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member_posts
+        (member_id, posts_id) 
+    values
+        (?, ?)
+2021-02-24 20:33:41.945 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2779]
+2021-02-24 20:33:41.945 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [34]
+2021-02-24 20:33:41.946 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap_members
+        (roadmaps_id, members_id) 
+    values
+        (?, ?)
+2021-02-24 20:33:41.946 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [433]
+2021-02-24 20:33:41.946 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [2779]
+2021-02-24 20:33:41.947 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap_stage_list
+        (roadmap_id, stage_list_id) 
+    values
+        (?, ?)
+2021-02-24 20:33:41.947 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [433]
+2021-02-24 20:33:41.947 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [220]
+2021-02-24 20:33:41.948 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        post0_.id as id1_11_,
+        post0_.content as content2_11_,
+        post0_.description as descript3_11_,
+        post0_.node_id as node_id5_11_,
+        post0_.title as title4_11_,
+        post0_.writer_id as writer_i6_11_ 
+    from
+        post post0_ 
+    left outer join
+        node node1_ 
+            on post0_.node_id=node1_.id 
+    where
+        node1_.id=?
+2021-02-24 20:33:41.948 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [209]
+2021-02-24 20:33:41.950 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        tag0_.id as id1_21_,
+        tag0_.moddate as moddate2_21_,
+        tag0_.regdate as regdate3_21_,
+        tag0_.title as title4_21_ 
+    from
+        tag tag0_
+2021-02-24 20:33:41.958  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : REQUESTURI : /new-post/209/tags/add
+2021-02-24 20:33:41.958  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : false
+2021-02-24 20:33:41.965  WARN 13216 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity com.roadmap.controller.PostController.newPostAddTag(com.roadmap.model.Member,java.lang.Long,com.roadmap.dto.member.form.TagForm,org.springframework.ui.Model)]
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /new-post/209
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository.CSRF_TOKEN=org.springframework.security.web.csrf.DefaultCsrfToken@7915754d, SPRING_SECURITY_CONTEXT=org.springframework.security.core.context.SecurityContextImpl@28901026: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@28901026: Principal: com.roadmap.model.UserMember@b2b359c1: Username: epepep; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: USER; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: USER}
+
+Handler:
+             Type = com.roadmap.controller.PostController
+           Method = com.roadmap.controller.PostController#newPostForm(Member, Model, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = roadmap/post/form
+             View = null
+        Attribute = nodeId
+            value = 209
+        Attribute = member
+            value = Member(id=2779, bio=null, email=epepep@email.com, nickname=epepep, password={bcrypt}$2a$10$QmrTwbKjAk8CLTd5pbbeZ..hW60GUe4i0a9dQL0hQ8TB3kAszb3Xu, emailCheckToken=195de8d7-8691-441d-8bd3-c7053eb29194, emailCheckTokenGeneratedAt=2021-02-24T20:33:41.918373800, emailVerified=false, joinedAt=2021-02-24T20:33:41.918373800, occupation=null, url=null, roadmapCreatedByEmail=false, roadmapCreatedByWeb=true, roadmapEnrollmentResultByEmail=false, roadmapEnrollmentResultByWeb=true, roadmapUpdatedByEmail=false, roadmapUpdatedByWeb=true, fromSocial=false, posts=[com.roadmap.model.Post@5d])
+           errors = []
+        Attribute = postForm
+            value = PostForm(title=null, description=null, content=null)
+           errors = []
+        Attribute = whitelist
+            value = [&quot;Spring Boot&quot;,&quot;JPA&quot;,&quot;Spring Framework&quot;,&quot;MyBatis&quot;,&quot;Java&quot;,&quot;자바&quot;,&quot;자바의정석&quot;,&quot;ko&quot;,&quot;포스트태그&quot;,&quot;포스트 테스트1&quot;,&quot;주제1&quot;,&quot;주제2&quot;,&quot;Roadmap&quot;,&quot;주제3&quot;,&quot;테스트1&quot;,&quot;테스트2&quot;,&quot;텟트&quot;,&quot;테스트4&quot;,&quot;수저어어어엉&quot;]
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Access-Control-Allow-Origin:&quot;*&quot;, Access-Control-Allow-Credentials:&quot;true&quot;, Access-Control-Allow-Methods:&quot;*&quot;, Access-Control-Max-Age:&quot;3600&quot;, Access-Control-Allow-Headers:&quot;Origin, X-Requested-With, Content-Type, Accept, Key, Authorization&quot;, Content-Language:&quot;en&quot;, Content-Type:&quot;text/html;charset=UTF-8&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;1; mode=block&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = text/html;charset=UTF-8
+             Body = &lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Roadmap&lt;/title&gt;
+    &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot;&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/node_modules/bootstrap/dist/css/bootstrap.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/node_modules/font-awesome/css/font-awesome.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/node_modules/@yaireo/tagify/dist/tagify.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/node_modules/summernote/dist/summernote-bs4.min.css&quot;&gt;
+    &lt;!--&lt;link rel=&quot;stylesheet&quot; href=&quot;../static/css/addrlinkSample.css&quot;&gt;--&gt;
+    &lt;script src=&quot;/node_modules/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/node_modules/jdenticon/dist/jdenticon.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        .container {
+            max-width: 100%;
+        }
+
+        .tagify-outside{
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        #roadmap-logo {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+
+        #roadmap-logo img {
+            height: auto;
+            width: 100%;
+            overflow: hidden;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, &quot;Noto Sans KR&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+        }
+
+        body,
+        input,
+        button,
+        select,
+        optgroup,
+        textarea,
+        .tooltip,
+        .popover {
+            font-family: -apple-system, BlinkMacSystemFont, &quot;Noto Sans KR&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-light&quot;&gt;
+&lt;nav class=&quot;navbar navbar-expand-sm navbar-dark bg-dark&quot;&gt;
+    &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;
+        &lt;img src=&quot;/images/logo.png&quot; width=&quot;30&quot; height=&quot;30&quot;&gt;
+    &lt;/a&gt;
+    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarSupportedContent&quot; aria-controls=&quot;navbarSupportedContent&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+        &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent&quot;&gt;
+        &lt;ul class=&quot;navbar-nav mr-auto&quot;&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;form action=&quot;/search/roadmap&quot; class=&quot;form-inline&quot; method=&quot;get&quot;&gt;
+                    &lt;input class=&quot;form-control mr-sm-2&quot; name=&quot;keyword&quot; type=&quot;search&quot; placeholder=&quot;로드맵 찾기&quot; aria-label=&quot;Search&quot; /&gt;
+                &lt;/form&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;ul class=&quot;navbar-nav justify-content-end&quot;&gt;
+            
+            
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;a class=&quot;nav-link&quot; href=&quot;/notifications&quot;&gt;
+                    &lt;i class=&quot;fa fa-bell-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item&quot;&gt;
+                &lt;a class=&quot;nav-link btn btn-outline-primary&quot; href=&quot;/new-roadmap&quot;&gt;
+                    &lt;i class=&quot;fa fa-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 로드맵 개설
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; id=&quot;userDropdown&quot; role=&quot;button&quot; data-toggle=&quot;dropdown&quot;
+                   aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;
+                    &lt;svg data-jdenticon-value=&quot;epepep&quot;
+                         width=&quot;24&quot; height=&quot;24&quot; class=&quot;rounded border bg-light&quot;&gt;&lt;/svg&gt;
+                    
+                &lt;/a&gt;
+                &lt;div class=&quot;dropdown-menu dropdown-menu-sm-right&quot; aria-labelledby=&quot;userDropdown&quot;&gt;
+                    &lt;h6 class=&quot;dropdown-header&quot;&gt;
+                        &lt;span&gt;epepep&lt;/span&gt;
+                    &lt;/h6&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;/profile/epepep&quot;&gt;프로필&lt;/a&gt;
+                    &lt;a class=&quot;dropdown-item&quot; &gt;로드맵&lt;/a&gt;
+                    &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                    &lt;a class=&quot;dropdown-item&quot; href=&quot;/settings/profile&quot;&gt;설정&lt;/a&gt;
+                    &lt;form class=&quot;form-inline my-2 my-lg-0&quot; action=&quot;/logout&quot; method=&quot;post&quot;&gt;&lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot; value=&quot;03433147-8465-41a1-9dd3-c9f4fdaaf628&quot;/&gt;
+                        &lt;button class=&quot;dropdown-item&quot; type=&quot;submit&quot;&gt;로그아웃&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;py-5 text-center&quot;&gt;
+        &lt;h2&gt;포스트 작성&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row justify-content-center&quot;&gt;
+        &lt;form class=&quot;needs-validation col-sm-10&quot; action=&quot;/new-post/209&quot; method=&quot;post&quot; novalidate&gt;&lt;input type=&quot;hidden&quot; name=&quot;_csrf&quot; value=&quot;03433147-8465-41a1-9dd3-c9f4fdaaf628&quot;/&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;title&quot;&gt;포스트 제목&lt;/label&gt;
+                &lt;input id=&quot;title&quot; type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;포스트 제목&quot; aria-describedby=&quot;titleHelp&quot; required max=&quot;50&quot; name=&quot;title&quot; value=&quot;&quot;&gt;
+                &lt;small id=&quot;titleHelp&quot; class=&quot;form-text text-muted&quot;&gt;
+                    포스트 제목을 50자 이내로 입력하세요.
+                &lt;/small&gt;
+                &lt;small class=&quot;invalid-feedback&quot;&gt;포스트 제목을 입력하세요.&lt;/small&gt;
+                
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;title&quot;&gt;소개&lt;/label&gt;
+                &lt;textarea id=&quot;description&quot; type=&quot;textarea&quot; class=&quot;form-control&quot; placeholder=&quot;포스트를 소개해주세요.&quot; aria-describedby=&quot;descriptionHelp&quot; required maxlength=&quot;100&quot; name=&quot;description&quot;&gt;&lt;/textarea&gt;
+                &lt;small id=&quot;shortDescriptionHelp&quot; class=&quot;form-text text-muted&quot;&gt;
+                    100자 이내로 포스트를 소개해주세요.
+                &lt;/small&gt;
+                &lt;small class=&quot;invalid-feedback&quot;&gt;소개를 입력하세요.&lt;/small&gt;
+                
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;title&quot;&gt;포스트 내용&lt;/label&gt;
+                &lt;textarea id=&quot;fullDescription&quot; type=&quot;textarea&quot; class=&quot;editor form-control&quot; placeholder=&quot;포스트 내용을 입력하세요.&quot; aria-describedby=&quot;contentHelp&quot; required name=&quot;content&quot;&gt;&lt;/textarea&gt;
+                &lt;small id=&quot;fullDescriptionHelp&quot; class=&quot;form-text text-muted&quot;&gt;
+                    포스트 내용을 입력하세요.
+                &lt;/small&gt;
+                &lt;small class=&quot;invalid-feedback&quot;&gt;포스트 내용을 입력하세요.&lt;/small&gt;
+                
+            &lt;/div&gt;
+            &lt;div class=&quot;col-8&quot;&gt;
+                
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;h2 class=&quot;col-12&quot;&gt;로드맵 주제&lt;/h2&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col-12&quot;&gt;
+                        &lt;div class=&quot;alert alert-info&quot; role=&quot;alert&quot;&gt;
+                            로드맵에서 주로 다루는 주제를 태그로 등록하세요. 태그를 입력하고 콤마(,) 또는 엔터를 입력하세요.
+                        &lt;/div&gt;
+                        &lt;div id=&quot;whitelist&quot; hidden&gt;[&amp;quot;Spring Boot&amp;quot;,&amp;quot;JPA&amp;quot;,&amp;quot;Spring Framework&amp;quot;,&amp;quot;MyBatis&amp;quot;,&amp;quot;Java&amp;quot;,&amp;quot;자바&amp;quot;,&amp;quot;자바의정석&amp;quot;,&amp;quot;ko&amp;quot;,&amp;quot;포스트태그&amp;quot;,&amp;quot;포스트 테스트1&amp;quot;,&amp;quot;주제1&amp;quot;,&amp;quot;주제2&amp;quot;,&amp;quot;Roadmap&amp;quot;,&amp;quot;주제3&amp;quot;,&amp;quot;테스트1&amp;quot;,&amp;quot;테스트2&amp;quot;,&amp;quot;텟트&amp;quot;,&amp;quot;테스트4&amp;quot;,&amp;quot;수저어어어엉&amp;quot;]&lt;/div&gt;
+                        &lt;input id=&quot;tags&quot; type=&quot;text&quot; name=&quot;tags&quot; value=&quot;&quot;
+                               class=&quot;tagify-outside&quot; aria-describedby=&quot;tagHelp&quot;/&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;button class=&quot;btn btn-primary btn-block&quot; type=&quot;submit&quot; aria-describedby=&quot;submitHelp&quot;&gt;포스트 만들기&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;fragments.html :: footer&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&quot;application/javascript&quot;&gt;
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            let forms = document.getElementsByClassName('needs-validation');
+
+            // Loop over them and prevent submission
+            Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        }, false)
+    }())
+&lt;/script&gt;
+&lt;div&gt;
+    &lt;script src=&quot;/node_modules/summernote/dist/summernote-bs4.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;application/javascript&quot;&gt;
+        $(function() {
+            $('.editor').summernote({
+                fontNames:['Arial','Arial Black', 'Comic Sans MS', 'Courier New', 'Noto Sans KR', 'Merriweather'],
+                placeholder: '로드맵의 목표, 일정, 진행 방식, 사용할 교제 또는 인터넷 강좌 그리고 모집중인 팀원 등 로드맵에 대해 자세히 적어주세요.',
+                tabSize : 2,
+                height:300
+            });
+        });
+    &lt;/script&gt;
+&lt;/div&gt;
+&lt;div &gt;
+    &lt;script src=&quot;/node_modules/@yaireo/tagify/dist/tagify.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;application/javascript&quot;&gt;
+        $(function () {
+            function tagRequest(url, tagTitle) {
+                $.ajax({
+                    dataType: &quot;json&quot;,
+                    autocomplete: {
+                        enabled: true,
+                        rightKey: true,
+                    },
+                    contentType: &quot;application/json; charset=utf-8&quot;,
+                    method: &quot;POST&quot;,
+                    url: &quot;/new-post/209/tags&quot; + url,
+                    data: JSON.stringify({'tagTitle': tagTitle})
+                }).done(function (data, status) {
+                    console.log(&quot;${data} and status is ${status}&quot;);
+                });
+            }
+
+            function onAdd(e) {
+                tagRequest(&quot;/add&quot;, e.detail.data.value);
+            }
+
+            function onRemove(e) {
+                tagRequest(&quot;/remove&quot;, e.detail.data.value);
+            }
+
+            var tagInput = document.querySelector(&quot;#tags&quot;);
+
+            var tagify = new Tagify(tagInput, {
+                pattern: /^.{0,20}$/,
+                whitelist : JSON.parse(document.querySelector(&quot;#whitelist&quot;).textContent),
+                dropdown : {
+                    enabled: 1, // suggest tags after a single character input
+                } // map tags
+            });
+
+            tagify.on(&quot;add&quot;, onAdd);
+            tagify.on(&quot;remove&quot;, onRemove);
+
+            // add a class to Tagify's input element
+            tagify.DOM.input.classList.add('form-control');
+            // re-place Tagify's input element outside of the  element (tagify.DOM.scope), just before it
+            tagify.DOM.scope.parentNode.insertBefore(tagify.DOM.input, tagify.DOM.scope);
+        });
+    &lt;/script&gt;
+&lt;/div&gt;
+&lt;script type=&quot;application/javascript&quot;&gt;
+    $(function() {
+        var csrfToken = &quot;03433147-8465-41a1-9dd3-c9f4fdaaf628&quot;;
+        var csrfHeader = &quot;X-CSRF-TOKEN&quot;;
+        $(document).ajaxSend(function (e, xhr, options) {
+            xhr.setRequestHeader(csrfHeader, csrfToken);
+        });
+    });
+&lt;/script&gt;&lt;script type=&quot;application/javascript&quot;&gt;
+    $(function() {
+        var csrfToken = &quot;03433147-8465-41a1-9dd3-c9f4fdaaf628&quot;;
+        var csrfHeader = &quot;X-CSRF-TOKEN&quot;;
+        $(document).ajaxSend(function (e, xhr, options) {
+            xhr.setRequestHeader(csrfHeader, csrfToken);
+        });
+    });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /new-post/209/tags/add
+       Parameters = {tagTitle=[태그 타이틀], _csrf=[7fdcd87d-07a5-4f44-a535-b7151b4a9520]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=org.springframework.security.core.context.SecurityContextImpl@28901026: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@28901026: Principal: com.roadmap.model.UserMember@b2b359c1: Username: epepep; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: USER; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: USER}
+
+Handler:
+             Type = com.roadmap.controller.PostController
+           Method = com.roadmap.controller.PostController#newPostAddTag(Member, Long, TagForm, Model)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = org.springframework.http.converter.HttpMessageNotReadableException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Access-Control-Allow-Origin:&quot;*&quot;, Access-Control-Allow-Credentials:&quot;true&quot;, Access-Control-Allow-Methods:&quot;*&quot;, Access-Control-Max-Age:&quot;3600&quot;, Access-Control-Allow-Headers:&quot;Origin, X-Requested-With, Content-Type, Accept, Key, Authorization&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;1; mode=block&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2021-02-24 20:33:41.976  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@33d14a73 testClass = PostControllerTest, testInstance = com.roadmap.post.PostControllerTest@46fb1fde, testMethod = newPostAddTag_correct@PostControllerTest, testException = java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;400&gt;, mergedContextConfiguration = [WebMergedContextConfiguration@40565763 testClass = PostControllerTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, [ImportsContextCustomizer@7c4b21bc key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]
+2021-02-24 20:33:41.979  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@33d14a73 testClass = PostControllerTest, testInstance = com.roadmap.post.PostControllerTest@6fae2e32, testMethod = newPostFormSubmit_error@PostControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@40565763 testClass = PostControllerTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, [ImportsContextCustomizer@7c4b21bc key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@25169dd]; rollback [true]
+2021-02-24 20:33:42.071  INFO 13216 --- [    Test worker] com.roadmap.service.MemberService        : email send signup confirm Email link : /check-email-token?token=0b67c07a-8214-4632-9cf3-a975c14782aa&amp;email=epepep@email.com
+2021-02-24 20:33:42.071 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        nextval ('hibernate_sequence')
+2021-02-24 20:33:42.073 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (moddate, regdate, bio, email, email_check_token, email_check_token_generated_at, email_verified, from_social, joined_at, loc_id, nickname, occupation, password, profile_image, roadmap_created_by_email, roadmap_created_by_web, roadmap_enrollment_result_by_email, roadmap_enrollment_result_by_web, roadmap_updated_by_email, roadmap_updated_by_web, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:42.071343500]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:42.071343500]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [epepep@email.com]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [0b67c07a-8214-4632-9cf3-a975c14782aa]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [TIMESTAMP] - [2021-02-24T20:33:42.070342400]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2021-02-24T20:33:42.070342400]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [null]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [12] as [VARCHAR] - [null]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [13] as [VARCHAR] - [{bcrypt}$2a$10$bhSog4HvMWFa.DjnfsZiiuhuVQA6Fy5YRQfnuSBvXSdpMQLGmLDT2]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [14] as [CLOB] - [null]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [15] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [16] as [BOOLEAN] - [true]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [17] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [18] as [BOOLEAN] - [true]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [19] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [20] as [BOOLEAN] - [true]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [21] as [VARCHAR] - [null]
+2021-02-24 20:33:42.073 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [22] as [BIGINT] - [2780]
+2021-02-24 20:33:42.074 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member_role_set
+        (member_id, role_set) 
+    values
+        (?, ?)
+2021-02-24 20:33:42.074 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2780]
+2021-02-24 20:33:42.074 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [USER]
+2021-02-24 20:33:42.075 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2021-02-24 20:33:42.075 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.076 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:42.076 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.080 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:42.080 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.083 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_0_,
+        roadmap2_.id as id1_14_1_,
+        member0_.moddate as moddate2_3_0_,
+        member0_.regdate as regdate3_3_0_,
+        member0_.bio as bio4_3_0_,
+        member0_.email as email5_3_0_,
+        member0_.email_check_token as email_ch6_3_0_,
+        member0_.email_check_token_generated_at as email_ch7_3_0_,
+        member0_.email_verified as email_ve8_3_0_,
+        member0_.from_social as from_soc9_3_0_,
+        member0_.joined_at as joined_10_3_0_,
+        member0_.loc_id as loc_id22_3_0_,
+        member0_.nickname as nicknam11_3_0_,
+        member0_.occupation as occupat12_3_0_,
+        member0_.password as passwor13_3_0_,
+        member0_.profile_image as profile14_3_0_,
+        member0_.roadmap_created_by_email as roadmap15_3_0_,
+        member0_.roadmap_created_by_web as roadmap16_3_0_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_0_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_0_,
+        member0_.roadmap_updated_by_email as roadmap19_3_0_,
+        member0_.roadmap_updated_by_web as roadmap20_3_0_,
+        member0_.url as url21_3_0_,
+        roadmap2_.moddate as moddate2_14_1_,
+        roadmap2_.regdate as regdate3_14_1_,
+        roadmap2_.closed as closed4_14_1_,
+        roadmap2_.closed_date_time as closed_d5_14_1_,
+        roadmap2_.complete as complete6_14_1_,
+        roadmap2_.full_description as full_des7_14_1_,
+        roadmap2_.image as image8_14_1_,
+        roadmap2_.milestone as mileston9_14_1_,
+        roadmap2_.owner_id as owner_i19_14_1_,
+        roadmap2_.path as path10_14_1_,
+        roadmap2_.progress as progres11_14_1_,
+        roadmap2_.published as publish12_14_1_,
+        roadmap2_.published_date_time as publish13_14_1_,
+        roadmap2_.recruiting as recruit14_14_1_,
+        roadmap2_.recruiting_updated_date_time as recruit15_14_1_,
+        roadmap2_.short_description as short_d16_14_1_,
+        roadmap2_.title as title17_14_1_,
+        roadmap2_.use_banner as use_ban18_14_1_,
+        roadmaps1_.members_id as members_2_15_0__,
+        roadmaps1_.roadmaps_id as roadmaps1_15_0__ 
+    from
+        member member0_ 
+    left outer join
+        roadmap_members roadmaps1_ 
+            on member0_.id=roadmaps1_.members_id 
+    left outer join
+        roadmap roadmap2_ 
+            on roadmaps1_.roadmaps_id=roadmap2_.id 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:42.083 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.086 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap
+        (moddate, regdate, closed, closed_date_time, complete, full_description, image, milestone, owner_id, path, progress, published, published_date_time, recruiting, recruiting_updated_date_time, short_description, title, use_banner) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:42.086 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:42.085343700]
+2021-02-24 20:33:42.086 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:42.085343700]
+2021-02-24 20:33:42.086 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.086 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
+2021-02-24 20:33:42.086 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.086 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [CLOB] - [full description]
+2021-02-24 20:33:42.087 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [CLOB] - [null]
+2021-02-24 20:33:42.087 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [TIMESTAMP] - [null]
+2021-02-24 20:33:42.087 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [2780]
+2021-02-24 20:33:42.087 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [/path]
+2021-02-24 20:33:42.088 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [DOUBLE] - [null]
+2021-02-24 20:33:42.088 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [12] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.088 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [13] as [TIMESTAMP] - [null]
+2021-02-24 20:33:42.088 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [14] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.088 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [15] as [TIMESTAMP] - [null]
+2021-02-24 20:33:42.088 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [16] as [VARCHAR] - [short description]
+2021-02-24 20:33:42.088 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [17] as [VARCHAR] - [title]
+2021-02-24 20:33:42.088 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [18] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.098 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        stage
+        (moddate, regdate, complete, head, ord, roadmap_id, tail, title) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:42.098 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:42.097342200]
+2021-02-24 20:33:42.098 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:42.097342200]
+2021-02-24 20:33:42.098 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.098 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BOOLEAN] - [true]
+2021-02-24 20:33:42.098 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
+2021-02-24 20:33:42.098 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [434]
+2021-02-24 20:33:42.098 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BOOLEAN] - [true]
+2021-02-24 20:33:42.098 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [1단계]
+2021-02-24 20:33:42.100 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        node
+        (moddate, regdate, complete, node_type, parent_id, read, short_description, stage_id, text, title, url) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:42.100 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:42.100342300]
+2021-02-24 20:33:42.100 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:42.100342300]
+2021-02-24 20:33:42.100 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.100 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [post]
+2021-02-24 20:33:42.101 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2021-02-24 20:33:42.101 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.101 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2021-02-24 20:33:42.101 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BIGINT] - [221]
+2021-02-24 20:33:42.101 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [VARCHAR] - [null]
+2021-02-24 20:33:42.101 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [노드 제목]
+2021-02-24 20:33:42.101 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [VARCHAR] - [null]
+2021-02-24 20:33:42.103  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : REQUESTURI : /new-post/210
+2021-02-24 20:33:42.103  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : false
+2021-02-24 20:33:42.106 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        post0_.id as id1_11_,
+        post0_.content as content2_11_,
+        post0_.description as descript3_11_,
+        post0_.node_id as node_id5_11_,
+        post0_.title as title4_11_,
+        post0_.writer_id as writer_i6_11_ 
+    from
+        post post0_ 
+    left outer join
+        node node1_ 
+            on post0_.node_id=node1_.id 
+    where
+        node1_.id=?
+2021-02-24 20:33:42.106 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [210]
+2021-02-24 20:33:42.107 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        post
+        (content, description, node_id, title, writer_id) 
+    values
+        (?, ?, ?, ?, ?)
+2021-02-24 20:33:42.108 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [CLOB] - [null]
+2021-02-24 20:33:42.108 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2021-02-24 20:33:42.108 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [210]
+2021-02-24 20:33:42.108 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [null]
+2021-02-24 20:33:42.108 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2021-02-24 20:33:42.110 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        tag0_.id as id1_21_,
+        tag0_.moddate as moddate2_21_,
+        tag0_.regdate as regdate3_21_,
+        tag0_.title as title4_21_ 
+    from
+        tag tag0_
+2021-02-24 20:33:42.121  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : REQUESTURI : /new-post/210
+2021-02-24 20:33:42.121  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : false
+2021-02-24 20:33:42.132 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        post0_.id as id1_11_,
+        post0_.content as content2_11_,
+        post0_.description as descript3_11_,
+        post0_.node_id as node_id5_11_,
+        post0_.title as title4_11_,
+        post0_.writer_id as writer_i6_11_ 
+    from
+        post post0_ 
+    left outer join
+        node node1_ 
+            on post0_.node_id=node1_.id 
+    where
+        node1_.id=?
+2021-02-24 20:33:42.133 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [210]
+2021-02-24 20:33:42.137  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@33d14a73 testClass = PostControllerTest, testInstance = com.roadmap.post.PostControllerTest@6fae2e32, testMethod = newPostFormSubmit_error@PostControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@40565763 testClass = PostControllerTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, [ImportsContextCustomizer@7c4b21bc key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]
+2021-02-24 20:33:42.139  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@33d14a73 testClass = PostControllerTest, testInstance = com.roadmap.post.PostControllerTest@7aa6de59, testMethod = newPostView@PostControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@40565763 testClass = PostControllerTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, [ImportsContextCustomizer@7c4b21bc key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@25169dd]; rollback [true]
+2021-02-24 20:33:42.223  INFO 13216 --- [    Test worker] com.roadmap.service.MemberService        : email send signup confirm Email link : /check-email-token?token=3eacea9d-ef83-44a6-9bdc-7fd310a312c3&amp;email=epepep@email.com
+2021-02-24 20:33:42.224 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        nextval ('hibernate_sequence')
+2021-02-24 20:33:42.225 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (moddate, regdate, bio, email, email_check_token, email_check_token_generated_at, email_verified, from_social, joined_at, loc_id, nickname, occupation, password, profile_image, roadmap_created_by_email, roadmap_created_by_web, roadmap_enrollment_result_by_email, roadmap_enrollment_result_by_web, roadmap_updated_by_email, roadmap_updated_by_web, url, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:42.224343800]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:42.224343800]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [epepep@email.com]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [3eacea9d-ef83-44a6-9bdc-7fd310a312c3]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [TIMESTAMP] - [2021-02-24T20:33:42.223340200]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2021-02-24T20:33:42.223340200]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [BIGINT] - [null]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [12] as [VARCHAR] - [null]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [13] as [VARCHAR] - [{bcrypt}$2a$10$GYk5SBRnYy5qC5TZOXl2y.fq9VMZ2Kv3jgkk0RnZX4ZJeMcNhPtTG]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [14] as [CLOB] - [null]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [15] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [16] as [BOOLEAN] - [true]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [17] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [18] as [BOOLEAN] - [true]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [19] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [20] as [BOOLEAN] - [true]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [21] as [VARCHAR] - [null]
+2021-02-24 20:33:42.225 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [22] as [BIGINT] - [2781]
+2021-02-24 20:33:42.226 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member_role_set
+        (member_id, role_set) 
+    values
+        (?, ?)
+2021-02-24 20:33:42.226 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2781]
+2021-02-24 20:33:42.226 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [USER]
+2021-02-24 20:33:42.227 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.email=?
+2021-02-24 20:33:42.227 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.228 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:42.228 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.231 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:42.231 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.233 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_0_,
+        roadmap2_.id as id1_14_1_,
+        member0_.moddate as moddate2_3_0_,
+        member0_.regdate as regdate3_3_0_,
+        member0_.bio as bio4_3_0_,
+        member0_.email as email5_3_0_,
+        member0_.email_check_token as email_ch6_3_0_,
+        member0_.email_check_token_generated_at as email_ch7_3_0_,
+        member0_.email_verified as email_ve8_3_0_,
+        member0_.from_social as from_soc9_3_0_,
+        member0_.joined_at as joined_10_3_0_,
+        member0_.loc_id as loc_id22_3_0_,
+        member0_.nickname as nicknam11_3_0_,
+        member0_.occupation as occupat12_3_0_,
+        member0_.password as passwor13_3_0_,
+        member0_.profile_image as profile14_3_0_,
+        member0_.roadmap_created_by_email as roadmap15_3_0_,
+        member0_.roadmap_created_by_web as roadmap16_3_0_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_0_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_0_,
+        member0_.roadmap_updated_by_email as roadmap19_3_0_,
+        member0_.roadmap_updated_by_web as roadmap20_3_0_,
+        member0_.url as url21_3_0_,
+        roadmap2_.moddate as moddate2_14_1_,
+        roadmap2_.regdate as regdate3_14_1_,
+        roadmap2_.closed as closed4_14_1_,
+        roadmap2_.closed_date_time as closed_d5_14_1_,
+        roadmap2_.complete as complete6_14_1_,
+        roadmap2_.full_description as full_des7_14_1_,
+        roadmap2_.image as image8_14_1_,
+        roadmap2_.milestone as mileston9_14_1_,
+        roadmap2_.owner_id as owner_i19_14_1_,
+        roadmap2_.path as path10_14_1_,
+        roadmap2_.progress as progres11_14_1_,
+        roadmap2_.published as publish12_14_1_,
+        roadmap2_.published_date_time as publish13_14_1_,
+        roadmap2_.recruiting as recruit14_14_1_,
+        roadmap2_.recruiting_updated_date_time as recruit15_14_1_,
+        roadmap2_.short_description as short_d16_14_1_,
+        roadmap2_.title as title17_14_1_,
+        roadmap2_.use_banner as use_ban18_14_1_,
+        roadmaps1_.members_id as members_2_15_0__,
+        roadmaps1_.roadmaps_id as roadmaps1_15_0__ 
+    from
+        member member0_ 
+    left outer join
+        roadmap_members roadmaps1_ 
+            on member0_.id=roadmaps1_.members_id 
+    left outer join
+        roadmap roadmap2_ 
+            on roadmaps1_.roadmaps_id=roadmap2_.id 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:42.233 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.235 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap
+        (moddate, regdate, closed, closed_date_time, complete, full_description, image, milestone, owner_id, path, progress, published, published_date_time, recruiting, recruiting_updated_date_time, short_description, title, use_banner) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:42.236 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:42.235343]
+2021-02-24 20:33:42.236 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:42.235343]
+2021-02-24 20:33:42.236 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.236 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
+2021-02-24 20:33:42.236 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.236 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [CLOB] - [full description]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [CLOB] - [null]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [TIMESTAMP] - [null]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [2781]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [/path]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [DOUBLE] - [null]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [12] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [13] as [TIMESTAMP] - [null]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [14] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [15] as [TIMESTAMP] - [null]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [16] as [VARCHAR] - [short description]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [17] as [VARCHAR] - [title]
+2021-02-24 20:33:42.237 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [18] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.239 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        stage
+        (moddate, regdate, complete, head, ord, roadmap_id, tail, title) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:42.239 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:42.239343]
+2021-02-24 20:33:42.239 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:42.239343]
+2021-02-24 20:33:42.239 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.239 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BOOLEAN] - [true]
+2021-02-24 20:33:42.240 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
+2021-02-24 20:33:42.240 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [435]
+2021-02-24 20:33:42.240 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BOOLEAN] - [true]
+2021-02-24 20:33:42.240 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [1단계]
+2021-02-24 20:33:42.241 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        node
+        (moddate, regdate, complete, node_type, parent_id, read, short_description, stage_id, text, title, url) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2021-02-24T20:33:42.241342400]
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [TIMESTAMP] - [2021-02-24T20:33:42.241342400]
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [post]
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BOOLEAN] - [false]
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [null]
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BIGINT] - [222]
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [VARCHAR] - [null]
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [노드 제목]
+2021-02-24 20:33:42.242 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [11] as [VARCHAR] - [null]
+2021-02-24 20:33:42.244 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:42.244 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.245 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        post
+        (content, description, node_id, title, writer_id) 
+    values
+        (?, ?, ?, ?, ?)
+2021-02-24 20:33:42.245 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [CLOB] - [null]
+2021-02-24 20:33:42.245 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2021-02-24 20:33:42.245 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [211]
+2021-02-24 20:33:42.245 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [null]
+2021-02-24 20:33:42.245 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [null]
+2021-02-24 20:33:42.247 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        member0_.id as id1_3_,
+        member0_.moddate as moddate2_3_,
+        member0_.regdate as regdate3_3_,
+        member0_.bio as bio4_3_,
+        member0_.email as email5_3_,
+        member0_.email_check_token as email_ch6_3_,
+        member0_.email_check_token_generated_at as email_ch7_3_,
+        member0_.email_verified as email_ve8_3_,
+        member0_.from_social as from_soc9_3_,
+        member0_.joined_at as joined_10_3_,
+        member0_.loc_id as loc_id22_3_,
+        member0_.nickname as nicknam11_3_,
+        member0_.occupation as occupat12_3_,
+        member0_.password as passwor13_3_,
+        member0_.profile_image as profile14_3_,
+        member0_.roadmap_created_by_email as roadmap15_3_,
+        member0_.roadmap_created_by_web as roadmap16_3_,
+        member0_.roadmap_enrollment_result_by_email as roadmap17_3_,
+        member0_.roadmap_enrollment_result_by_web as roadmap18_3_,
+        member0_.roadmap_updated_by_email as roadmap19_3_,
+        member0_.roadmap_updated_by_web as roadmap20_3_,
+        member0_.url as url21_3_ 
+    from
+        member member0_ 
+    where
+        member0_.nickname=?
+2021-02-24 20:33:42.247 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [epepep]
+2021-02-24 20:33:42.257  INFO 13216 --- [    Test worker] com.roadmap.post.PostControllerTest      : node : Node(id=211, childs=[], nodeType=post, title=노드 제목, shortDescription=null, url=null, complete=false, read=false, text=null)
+2021-02-24 20:33:42.258 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    update
+        post 
+    set
+        content=?,
+        description=?,
+        node_id=?,
+        title=?,
+        writer_id=? 
+    where
+        id=?
+2021-02-24 20:33:42.258 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [CLOB] - [포스트 내용]
+2021-02-24 20:33:42.259 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [포스트 설명]
+2021-02-24 20:33:42.259 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [211]
+2021-02-24 20:33:42.259 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [포스트 제목]
+2021-02-24 20:33:42.259 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [2781]
+2021-02-24 20:33:42.259 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [36]
+2021-02-24 20:33:42.260 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member_posts
+        (member_id, posts_id) 
+    values
+        (?, ?)
+2021-02-24 20:33:42.260 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2781]
+2021-02-24 20:33:42.260 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [36]
+2021-02-24 20:33:42.261 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap_members
+        (roadmaps_id, members_id) 
+    values
+        (?, ?)
+2021-02-24 20:33:42.261 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [435]
+2021-02-24 20:33:42.261 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [2781]
+2021-02-24 20:33:42.262 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        roadmap_stage_list
+        (roadmap_id, stage_list_id) 
+    values
+        (?, ?)
+2021-02-24 20:33:42.262 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [435]
+2021-02-24 20:33:42.262 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [222]
+2021-02-24 20:33:42.263 DEBUG 13216 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        post0_.id as id1_11_,
+        post0_.content as content2_11_,
+        post0_.description as descript3_11_,
+        post0_.node_id as node_id5_11_,
+        post0_.title as title4_11_,
+        post0_.writer_id as writer_i6_11_ 
+    from
+        post post0_ 
+    left outer join
+        node node1_ 
+            on post0_.node_id=node1_.id 
+    where
+        node1_.id=?
+2021-02-24 20:33:42.263 TRACE 13216 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [211]
+2021-02-24 20:33:42.264  INFO 13216 --- [    Test worker] com.roadmap.post.PostControllerTest      : post : 36
+2021-02-24 20:33:42.265  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : REQUESTURI : /post/36
+2021-02-24 20:33:42.265  INFO 13216 --- [    Test worker] com.roadmap.filter.ApiCheckFilter        : false
+2021-02-24 20:33:42.293  INFO 13216 --- [    Test worker] com.roadmap.post.PostControllerTest      : model : {member=Member(id=2781, bio=null, email=epepep@email.com, nickname=epepep, password={bcrypt}$2a$10$GYk5SBRnYy5qC5TZOXl2y.fq9VMZ2Kv3jgkk0RnZX4ZJeMcNhPtTG, emailCheckToken=3eacea9d-ef83-44a6-9bdc-7fd310a312c3, emailCheckTokenGeneratedAt=2021-02-24T20:33:42.223340200, emailVerified=false, joinedAt=2021-02-24T20:33:42.223340200, occupation=null, url=null, roadmapCreatedByEmail=false, roadmapCreatedByWeb=true, roadmapEnrollmentResultByEmail=false, roadmapEnrollmentResultByWeb=true, roadmapUpdatedByEmail=false, roadmapUpdatedByWeb=true, fromSocial=false, posts=[com.roadmap.model.Post@5f]), post=com.roadmap.model.Post@5f, org.springframework.validation.BindingResult.member=org.springframework.validation.BeanPropertyBindingResult: 0 errors, org.springframework.validation.BindingResult.post=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2021-02-24 20:33:42.297  INFO 13216 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@33d14a73 testClass = PostControllerTest, testInstance = com.roadmap.post.PostControllerTest@7aa6de59, testMethod = newPostView@PostControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@40565763 testClass = PostControllerTest, locations = '{}', classes = '{class com.roadmap.CoreApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@325e26c4, [ImportsContextCustomizer@7c4b21bc key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4db5c7c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@630285f8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f7703c, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@59f291c0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true]]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.7</a> at 2021. 2. 24. 오후 8:33:52</p>
+</div>
+</div>
+</body>
+</html>

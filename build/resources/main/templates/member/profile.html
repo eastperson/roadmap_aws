@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head"></head>
+<body class="bg-light">
+<div th:replace="fragments.html :: main-nav"></div>
+<div class="container">
+    <div th:if="${member != null}" class="row mt-5 justify-content-center">
+        <div class="col-2">
+            <!-- Avatar -->
+            <svg th:if="${#strings.isEmpty(member.profileImage)}" class="img-fluid float-left rounded img-thumbnail"
+                 th:data-jdenticon-value="${member.nickname}" width="125" height="125"></svg>
+            <img th:if="${!#strings.isEmpty(member.profileImage)}" class="img-fluid float-left rounded img-thumbnail"
+                 th:src="${member.profileImage}"
+                 width="125" height="125"/>
+        </div>
+        <div class="col-8">
+            <h1 class="display-4 " th:text="${member.nickname}">Eastperson</h1>
+            <p class="lead" th:if="${!#strings.isEmpty(member.bio)}" th:text="${member.bio}">bio</p>
+            <p class="lead" th:if="${#strings.isEmpty(member.bio) && isOwner}">
+                한 줄 소개를 추가하세요.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-3 justify-content-center">
+        <div class="col-2">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-intro-tab" data-toggle="pill" href="#v-pills-profile"
+                   role="tab" aria-controls="v-pills-profile" aria-selected="true">소개</a>
+                <a class="nav-link" id="v-pills-study-tab" data-toggle="pill" href="#v-pills-study"
+                   role="tab" aria-controls="v-pills-study" aria-selected="false">로드맵</a>
+            </div>
+        </div>
+        <div th:if="${member != null}" class="col-8">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <p th:if="${!#strings.isEmpty(member.url)}">
+                            <span style="font-size: 20px;">
+                                <i class="fa fa-link col-1"></i>
+                            </span>
+                        <span th:text="${member.url}" class="col-11"></span>
+                    </p>
+                    <p th:if="${!#strings.isEmpty(member.occupation)}">
+                            <span style="font-size: 20px;">
+                                <i class="fa fa-briefcase col-1"></i>
+                            </span>
+                        <span th:text="${member.occupation}" class="col-9"></span>
+                    </p>
+                    <p th:if="${!#strings.isEmpty(member.location)}">
+                            <span style="font-size: 20px;">
+                                <i class="fa fa-location-arrow col-1"></i>
+                            </span>
+                        <span th:text="${member.location.addr}" class="col-9"></span>
+                        <!--TODO Map 추가-->
+                    </p>
+                    <p th:if="${isOwner}">
+                            <span style="font-size: 20px;">
+                                <i class="fa fa-envelope-o col-1"></i>
+                            </span>
+                        <span th:text="${member.email}" class="col-9"></span>
+                    </p>
+                    <p th:if="${isOwner || member.emailVerified}">
+                            <span style="font-size: 20px;">
+                                <i class="fa fa-calendar-o col-1"></i>
+                            </span>
+                        <span th:if="${isOwner && !member.emailVerified}" class="col-9">
+                                <a href="#" th:href="@{'/check-email-send?email=' + ${member.email}}">가입을 완료하려면 이메일을 확인하세요.</a>
+                            </span>
+                        <span th:text="${#temporals.format(member.joinedAt, 'yyyy년 M월 가입')}" class="col-9"></span>
+                    </p>
+                    <div th:if="${isOwner}">
+                        <a class="btn btn-outline-primary" href="#" th:href="@{/settings/profile}">프로필 수정</a>
+                    </div>
+                </div>
+                <div id="v-pills-study" class="tab-pane fade" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div th:if="${member.roadmaps != null}" class="mt-5" th:each="roadmap : ${member.roadmaps}">
+                        <div class="card">
+                            <h5 class="card-header" th:text="${roadmap.getTitle()}">Featured</h5>
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${'제작자 : ' + roadmap.getOwner().getNickname()}">Special title treatment</h5>
+                                <p class="card-text" th:text="${roadmap.getShortDescription()}">With supporting text below as a natural lead-in to additional content.</p>
+                                <a th:href="@{'/roadmap/' + ${roadmap.getEncodedPath()}}" class="btn btn-primary">로드맵 확인하기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

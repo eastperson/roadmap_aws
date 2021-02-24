@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head"></head>
+<body class="bg-light">
+<div th:replace="fragments.html :: main-nav"></div>
+
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>포스트 작성</h2>
+    </div>
+    <div class="row justify-content-center">
+        <form class="needs-validation col-sm-10" th:action="@{'/new-post/'+${nodeId}}" th:object="${postForm}" method="post" novalidate>
+            <div class="form-group">
+                <label for="title">포스트 제목</label>
+                <input id="title" type="text" th:field="*{title}" class="form-control" placeholder="포스트 제목" aria-describedby="titleHelp" required max="50">
+                <small id="titleHelp" class="form-text text-muted">
+                    포스트 제목을 50자 이내로 입력하세요.
+                </small>
+                <small class="invalid-feedback">포스트 제목을 입력하세요.</small>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('title')}" th:error="*{title}">Title Error</small>
+            </div>
+            <div class="form-group">
+                <label for="title">소개</label>
+                <textarea id="description" type="textarea" th:field="*{description}" class="form-control" placeholder="포스트를 소개해주세요." aria-describedby="descriptionHelp" required maxlength="100"/>
+                <small id="shortDescriptionHelp" class="form-text text-muted">
+                    100자 이내로 포스트를 소개해주세요.
+                </small>
+                <small class="invalid-feedback">소개를 입력하세요.</small>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('description')}" th:error="*{description}">Description Error</small>
+            </div>
+            <div class="form-group">
+                <label for="title">포스트 내용</label>
+                <textarea id="fullDescription" type="textarea" th:field="*{content}" class="editor form-control" placeholder="포스트 내용을 입력하세요." aria-describedby="contentHelp" required/>
+                <small id="fullDescriptionHelp" class="form-text text-muted">
+                    포스트 내용을 입력하세요.
+                </small>
+                <small class="invalid-feedback">포스트 내용을 입력하세요.</small>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('content')}" th:error="*{content}">Content Error</small>
+            </div>
+            <div class="col-8">
+                <div th:replace="fragments.html :: message"></div>
+                <div class="row">
+                    <h2 class="col-12">로드맵 주제</h2>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-info" role="alert">
+                            로드맵에서 주로 다루는 주제를 태그로 등록하세요. 태그를 입력하고 콤마(,) 또는 엔터를 입력하세요.
+                        </div>
+                        <div id="whitelist" th:text="${whitelist}" hidden></div>
+                        <input id="tags" type="text" name="tags" th:value="${#strings.listJoin(tags, ',')}"
+                               class="tagify-outside" aria-describedby="tagHelp"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit" aria-describedby="submitHelp">포스트 만들기</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="fragments.html :: footer"></div>
+</div>
+<script th:replace="fragments.html :: form-validation"></script>
+<script th:replace="fragments.html :: editor-script"></script>
+<script th:replace="fragments.html :: update-tags (baseUrl = '/new-post/'+${nodeId}+'/tags')"></script>
+<script th:replace="fragments.html :: ajax-csrf-header"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "com.roadmap.config.AppProperties",
+      "sourceType": "com.roadmap.config.AppProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.host",
+      "type": "java.lang.String",
+      "sourceType": "com.roadmap.config.AppProperties"
+    },
+    {
+      "name": "app.juso-confirm-key",
+      "type": "java.lang.String",
+      "sourceType": "com.roadmap.config.AppProperties"
+    },
+    {
+      "name": "app.kakao-js-key",
+      "type": "java.lang.String",
+      "sourceType": "com.roadmap.config.AppProperties"
+    },
+    {
+      "name": "app.kakao-rest-key",
+      "type": "java.lang.String",
+      "sourceType": "com.roadmap.config.AppProperties"
+    },
+    {
+      "name": "app.roadmap-api-key",
+      "type": "java.lang.String",
+      "sourceType": "com.roadmap.config.AppProperties"
+    }
+  ],
+  "hints": []
+}

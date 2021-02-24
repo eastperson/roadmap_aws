@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head"></head>
+<head>
+    <style>
+        /*  The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.219); /* Black w/ opacity */
+            animation: fadeEffect 0.8s;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: 10% auto; /* 15% from the top and centered */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-self: start;
+            border-radius: 3px;
+            box-shadow: 3px 3px 7px rgba(44, 36, 36, 0.342);
+            width: 40%; /* Could be more or less, depending on screen size */
+            height: auto;
+            animation: fadeEffect 0.3s;
+            overflow: hidden;
+        }
+        .modal_header{
+            padding: 0 0;
+            width: 100%;
+            /*border: 1px black solid;*/
+            border-radius: 3px 3px 0 0;
+            font-size: 18px;
+        }
+        .modal_wrapper_regwait{
+            margin: 10px;
+            padding: 0 25px 50px 25px;
+            /*display: flex;*/
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            display:none;
+        }
+        .modal_tit{
+            /*border: 1px black solid;*/
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            width: 100%;
+            height: 50px;
+            /*text-shadow: 1px 1px 6px rgba(44, 36, 36, 0.171);*/
+        }
+        .modal_top{
+            width: 100%;
+            height: 250px;
+            /*border: 1px black solid;*/
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal_bot{
+            width: 100%;
+            height: 100px;
+            /*border: 1px black solid;*/
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal_bot > div{
+            font-weight: bold;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .modal-content ul{
+            margin : 0 0;
+            display : flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .modal-content ul li {
+            width:100px;
+            height:100px;
+        }
+
+        /* The Close Button */
+        .close_modal {
+            position : absolute;
+            right : 20px;
+            top : 10px;
+            display : inline-block;
+            margin : 0 0;
+            color: black;
+            font-size: 36px;
+
+        }
+
+        .close_modal:hover,
+        .close_modal:focus {
+            color: gray;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-light">
+<script th:src="@{/js/arbor.js}"></script>
+<script th:src="@{/js/arbor-tween.js}"></script>
+<div th:replace="fragments.html :: main-nav"></div>
+<div th:replace="fragments.html :: roadmap-banner"></div>
+
+<div class="container">
+    <div th:replace="fragments.html :: roadmap-info"></div>
+    <div th:replace="fragments.html :: roadmap-menu(roadmapMenu='map')"></div>
+
+    <button class="btn btn-outline-primary" id="stage-add">스테이지 추가</button>
+    <button class="btn btn-outline-primary" id="modal-flag">수정하기</button>
+
+    <canvas id="viewport" width="1920" height="1080"></canvas>
+
+    <!-- The Modal -->
+    <div id="nodeModal" class="modal">
+        <!-- Modal content -->
+        <form class="modal-content modalForm" id="form"method="" th:action="@{/roadmap}">
+            <div class="close_modal" style="display: none"><i class="fa fa-times-circle"></i></div>
+            <nav class="nav nav-pills nav-justified">
+                <button id="modifyBtn" class="nav-link active" aria-current="page" href="#">노드 수정</button>
+                <button id="addBtn" class="nav-link" href="#">노드 추가</button>
+                <button id="removeBtn" class="nav-link btn-danger" href="#">노드 제거</button>
+            </nav>
+            <div class="modal_header">
+                <span id="node-title"></span>
+                <span id="short-description"></span>
+            </div>
+            <hr/>
+            <div class="modal-body">
+                <div class="modal-modify">
+                    <div>
+                        <label for="form-id" class="col-form-label">아이디</label>
+                        <input type="text" id="form-id" name="id" class="form-control" readonly>
+                    </div>
+                    <div>
+                        <label for="form-parentId" class="col-form-label">Parent 아이디</label>
+                        <input type="text" id="form-parentId" name="parentId" class="form-control" readonly>
+                    </div>
+                    <div>
+                        <label for="form-parentType" class="col-form-label">Parent 타입</label>
+                        <input type="text" id="form-parentType" name="parentType" class="form-control" readonly>
+                    </div>
+                    <div>
+                        <label for="form-title" class="col-form-label">타이틀</label>
+                        <input type="text" id="form-title" name="title" class="form-control">
+                    </div>
+                    <div>
+                        <label for="form-shortDescription" class="col-form-label">짧은 소개</label>
+                        <input type="text" id="form-shortDescription" name="shortDescription" class="form-control">
+                    </div>
+                    <div>
+                        <label for="form-url" class="col-form-label">URL</label>
+                        <input type="text" id="form-url" name="url" class="form-control">
+                    </div>
+                    <div class="form-check mt-3">
+                        <input type="checkbox" id="form-complete" name="complete" class="form-check-input mr-5">
+                        <label class="form-check-label mr-5">완료</label>
+                        <input type="checkbox" id="form-read" name="read" class="form-check-input mr-5">
+                        <label for="form-read" class="form-check-label mr-5">읽음</label>
+                    </div>
+                    <div>
+                        <label for="form-text" class="col-form-label">텍스트</label>
+                        <input type="text" id="form-text" name="text" class="form-control">
+                    </div>
+                    <div>
+                        <label for="form-title">노드 타입</label>
+                        <input type="text" id="form-nodeType" name="nodeType" class="form-control" readonly>
+                    </div>
+                    <div id="btnAddPostDiv" style="display: none">
+                        <button class="btn btn-warning" id="btnAddPost">포스트 작성</button>
+                    </div>
+                </div>
+                <div class="modal-add" style="display: none">
+                    <div>
+                        <label for="form-id" class="col-form-label">아이디</label>
+                        <input type="text" name="id" class="form-control">
+                    </div>
+                    <div>
+                        <label for="form-parentId" class="col-form-label">Parent 아이디</label>
+                        <input type="text" name="parentId" class="form-control">
+                    </div>
+                    <div>
+                        <label for="form-parentType" class="col-form-label">Parent 타입</label>
+                        <input type="text" name="parentType" class="form-control">
+                    </div>
+                    <div>
+                        <label for="form-title">타이틀</label>
+                        <input type="text" name="title" class="form-control">
+                    </div>
+                    <div>
+                        <label for="form-title">노드 타입</label>
+                        <select class="form-select" aria-label="Default select example" name="nodeType">
+                            <option value="text" selected>Text</option>
+                            <option value="post">Post</option>
+                            <option value="link">Link</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="modal-stage-add">
+
+                </div>
+            </div>
+            <hr/>
+            <div class="modal-footer">
+                <button class="btn btn-warning" id="form-modify-submitBtn" data-oper="">수정</button>
+                <button class="btn btn-warning" id="form-add-submitBtn" style="display: none" data-oper="">추가</button>
+                <button class="btn btn-dark closeBtn">취소</button>
+            </div>
+        </form>
+    </div>
+
+    <div th:replace="fragments.html :: footer"></div>
+    <div th:replace="fragments.html :: modal"></div>
+    <script th:inline="javascript">
+        const roadmapAppKey = [[${roadmapAppKey}]];
+        const host = [[${host}]];
+        let stageListStr = [[${stageList}]];
+        const path = [[${roadmap.path}]];
+    </script>
+    <script>
+
+        let roadmapService = (() => {
+
+            function addNewStage(params,callback,error) {
+
+                let obj = params.obj;
+
+                console.log('------------------add new stage');
+                console.log(obj);
+                console.dir(obj);
+
+                $.ajax({
+                    url: "/roadmap/api/" + path + "/stage/new",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify(obj),
+                    type: 'POST',
+                    dataType: 'json',
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Accept', "application/json");
+                        xhr.setRequestHeader('Authorization', "Bearer " + roadmapAppKey);
+                    },
+                    success: function (result) {
+                        alert(result);
+                        console.log(result);
+                    },
+                    error : function (xhr,status,er) {
+                        if(error) {
+                            error(er);
+                        }
+                    }
+                });
+            };
+
+            function prAddNewStage(params,callback,error) {
+
+                let obj = params.obj;
+
+                return new Promise(function(resolve,reject) {
+                    $.ajax({
+                        url: "/roadmap/api/" + path + "/stage/new",
+                        contentType: "application/json;charset=utf-8",
+                        data: JSON.stringify(obj),
+                        type: 'POST',
+                        dataType: 'json',
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Accept', "application/json");
+                            xhr.setRequestHeader('Authorization', "Bearer " + roadmapAppKey);
+                        },
+                        success: function (result) {
+                            resolve(result);
+                        },
+                        error : function (xhr,status,er) {
+                            reject(new Error("Reuquest is Failed"));
+                        }
+                    });
+                });
+            };
+
+            function prGetStageList(){
+
+                return new Promise(function(resolve,reject) {
+                    $.ajax({
+                        url: "/roadmap/api/"+path+"/stage/getList",
+                        contentType: false,
+                        type: 'GET',
+                        dataType: 'json',
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Accept', "application/json");
+                            xhr.setRequestHeader('Authorization', "Bearer " + roadmapAppKey);
+                        },
+                        success: function (result) {
+                            console.log("result : " + result);
+                            console.log(JSON.stringify(result));
+                            resolve(result);
+                        },
+                        error : function (xhr,status,er) {
+                            reject(new Error("Reuquest is Failed"));
+                        }
+                    });
+                });
+            };
+
+            function prAddNode(params){
+
+                let formData = params.formData;
+
+                return new Promise(function (resolve,reject){
+                    $.ajax({
+                        url: "/roadmap/api/" + path + "/node/new",
+                        contentType: "application/json;charset=utf-8",
+                        data: JSON.stringify(formData),
+                        type: 'POST',
+                        dataType: 'json',
+                        beforeSend : function (xhr) {
+                            xhr.setRequestHeader('Accept', "application/json");
+                            xhr.setRequestHeader('Authorization', "Bearer " + roadmapAppKey);
+                        },
+                        success: function (result) {
+                            resolve(result)
+                        },
+                        error : function (result) {
+                            reject(result)
+                        }
+                    });
+                });
+            };
+
+            function prModifyNode(params){
+
+                let formData = params.formData;
+
+                return new Promise(function (resolve,reject) {
+                    $.ajax({
+                        url: "/roadmap/api/" + path + "/node/modify",
+                        processData: false,
+                        contentType: 'application/json',
+                        data : JSON.stringify(formData),
+                        type: 'PUT',
+                        dataType: 'json',
+                        beforeSend : function (xhr) {
+                            xhr.setRequestHeader('Accept', "application/json");
+                            xhr.setRequestHeader('Authorization', "Bearer " + roadmapAppKey);
+                        },
+                        success: function (result) {
+                            resolve(result);
+                        },
+                        error : function (result) {
+                            reject(result)
+                        }
+                    });
+                });
+
+            }
+
+            function prRemoveNode(params){
+                let formData = params.formData;
+
+                return new Promise(function (resolve,reject) {
+                    $.ajax({
+                        url: "/roadmap/api/" + path + "/node/remove",
+                        processData: false,
+                        contentType: 'application/json',
+                        data : JSON.stringify(formData),
+                        type: 'DELETE',
+                        dataType: 'json',
+                        beforeSend : function (xhr) {
+                            xhr.setRequestHeader('Accept', "application/json");
+                            xhr.setRequestHeader('Authorization', "Bearer " + roadmapAppKey);
+                        },
+                        success: function (result) {
+                            console.log("----------------success");
+                            console.log(result);
+                            resolve(result);
+                        },
+                        error : function (result) {
+                            console.log("----------------error");
+                            console.log(result);
+                            reject(result)
+                        }
+                    });
+                });
+            };
+
+
+            return{
+                addNewStage : addNewStage,
+                prAddNewStage : prAddNewStage,
+                prGetStageList : prGetStageList,
+                prAddNode : prAddNode,
+                prModifyNode : prModifyNode,
+                prRemoveNode : prRemoveNode
+            }
+
+        })();
+
+        let nodeModal = document.querySelector("#nodeModal"),
+            closeBtn = document.querySelector(".close_modal"),
+            modifySubmitBtn = document.querySelector("#form-modify-submitBtn"),
+            addSubmitBtn = document.querySelector("#form-add-submitBtn"),
+            modifyBtn = document.querySelector("#modifyBtn"),
+            addBtn = document.querySelector("#addBtn"),
+            removeBtn = document.querySelector("#removeBtn"),
+            formObj = document.querySelector("#form"),
+            modalBody = document.querySelector(".modal-body"),
+            addStageBtn = document.querySelector("#stage-add");
+
+
+        let modifyBtnNodeHandler = function (e) {
+            e.preventDefault();
+            addBtn.classList.remove("active");
+            modifyBtn.classList.add("active");
+            document.querySelector(".modal-modify").setAttribute("style","display:block");
+            addSubmitBtn.setAttribute("style","display:none");
+            modifySubmitBtn.setAttribute("style","display:block");
+            document.querySelector(".modal-add").setAttribute("style","display:none");
+        };
+
+        let addBtnNodeHandler = function (e) {
+            e.preventDefault();
+            addBtn.classList.add("active");
+            modifyBtn.classList.remove("active");
+            addSubmitBtn.setAttribute("style","display:block");
+            modifySubmitBtn.setAttribute("style","display:none");
+            document.querySelector(".modal-modify").setAttribute("style","display:none");
+            document.querySelector(".modal-add").setAttribute("style","display:block");
+        };
+
+
+        closeBtn.addEventListener("click",(e) => {
+            e.preventDefault();
+            nodeModal.setAttribute("style","{display : none}")
+        });
+
+        window.onclick = function(e) {
+            if (e.target === document.getElementById('nodeModal')) {
+                nodeModal.setAttribute("style","{display : none}")
+            }
+        }
+
+        // esc 눌러서 모달 escape
+        $(document).keyup(function(e) {
+            if(e.key === "Escape"){
+                nodeModal.setAttribute("style","{display : none}")
+            }
+        });
+
+        let stageList = JSON.parse(stageListStr);
+        let move = function (){
+            console.log('move....................');
+            location.href = '/';
+        }
+        let nodeModalFlag = false;
+        let modalFlagBtn = document.querySelector("#modal-flag");
+
+        modalFlagBtn.addEventListener("click", (e) => {
+            if(nodeModalFlag) {
+                modalFlagBtn.classList.add('btn-outline-primary');
+                modalFlagBtn.classList.remove('btn-primary');
+                nodeModalFlag = false;
+            }
+            else {
+                modalFlagBtn.classList.add('btn-primary');
+                modalFlagBtn.classList.remove('btn-outline-primary');
+                nodeModalFlag = true;
+            }
+        });
+
+        document.querySelector(".closeBtn").addEventListener("click",(e) => {
+            e.preventDefault();
+            nodeModal.setAttribute("style","{display : none}")
+        });
+
+        modifyBtn.addEventListener("click",modifyBtnNodeHandler);
+
+        addBtn.addEventListener("click", addBtnNodeHandler);
+
+    </script>
+    <script>
+
+        (function ($) {
+
+            let nodeModal = document.getElementById('nodeModal');
+            let showModalStage = function(nodeData) {
+
+                console.log('---------------------show Modal');
+                console.log(nodeData);
+                console.dir(nodeData);
+
+                nodeModal.classList.remove('hide');
+                nodeModal.classList.add('show');
+                nodeModal.style.display = 'block';
+
+                let modalTitle = nodeModal.querySelector('#node-title');
+                let modalDescription = nodeModal.querySelector('#short-description');
+
+                for (let i = 0; i < 2; i++){
+                    let modalType = null;
+                    if(i ===0) modalType = '.modal-modify ';
+                    if(i === 1) modalType = '.modal-add ';
+
+                    let inputId = document.querySelector(modalType + "input[name='id']"),
+                        inputParentId = document.querySelector(modalType + 'input[name="parentId"]'),
+                        inputParentType = document.querySelector(modalType + 'input[name="parentType"]'),
+                        inputTitle = document.querySelector(modalType + 'input[name="title"]'),
+                        inputShortDescription = document.querySelector(modalType + 'input[name="shortDescription"]'),
+                        inputUrl = document.querySelector(modalType + 'input[name="url"]'),
+                        inputComplete = document.querySelector(modalType + 'input[name="complete"]'),
+                        inputRead = document.querySelector(modalType + 'input[name="read"]'),
+                        inputText = document.querySelector(modalType + 'input[name="text"]');
+
+                    console.log('----------------------input title');
+                    console.dir(inputTitle);
+
+                    modalTitle.textContent = nodeData.name + ' 노드 설정';
+                    inputId.value = nodeData.id;
+                    inputParentType.value = nodeData.parentType;
+                    inputNodeType.value = nodeData.nodeType;
+                    inputTitle.value = nodeData.title;
+
+                };
+            };
+            let showModal = function (nodeData) {
+
+                console.log('---------------------show Modal');
+                console.log(nodeData);
+                console.dir(nodeData);
+
+                nodeModal.classList.remove('hide');
+                nodeModal.classList.add('show');
+                nodeModal.style.display = 'block';
+
+                let modalTitle = nodeModal.querySelector('#node-title');
+                let modalDescription = nodeModal.querySelector('#short-description');
+
+                for (let i = 0; i < 2; i++){
+                    let modalType = null;
+                    if(i ===0) modalType = '.modal-modify ';
+                    if(i === 1) modalType = '.modal-add ';
+
+                    let inputId = document.querySelector(modalType + "input[name='id']"),
+                        inputParentId = document.querySelector(modalType + 'input[name="parentId"]'),
+                        inputParentType = document.querySelector(modalType + 'input[name="parentType"]'),
+                        inputTitle = document.querySelector(modalType + 'input[name="title"]'),
+                        inputShortDescription = document.querySelector(modalType + 'input[name="shortDescription"]'),
+                        inputUrl = document.querySelector(modalType + 'input[name="url"]'),
+                        inputComplete = document.querySelector(modalType + 'input[name="complete"]'),
+                        inputRead = document.querySelector(modalType + 'input[name="read"]'),
+                        inputText = document.querySelector(modalType + 'input[name="text"]'),
+                        inputNodeType = document.querySelector(modalType + 'input[name="nodeType"]'),
+                        btnAddPostDiv = document.querySelector('#btnAddPostDiv'),
+                        btnAddPost = document.querySelector('#btnAddPost');
+
+                    console.log('----------------------input title');
+                    console.dir(inputTitle);
+                    console.log('input node type : ' + inputNodeType);
+
+                    modalTitle.textContent = nodeData.name + ' 노드 설정';
+                    inputId.value = nodeData.id;
+                    inputParentId.value = nodeData.parentId;
+                    inputParentType.value = nodeData.parentType;
+
+                    if(i !== 1){
+                        inputTitle.value = nodeData.title;
+                        modalDescription.textContent = nodeData.shortDescription;
+                        inputShortDescription.value =nodeData.shortDescription;
+                        inputUrl.value = nodeData.title;
+                        if(nodeData.complete) inputComplete.checked = true;
+                        if(nodeData.read) inputRead.checked = true;
+                        inputText.value = nodeData.text;
+                        inputNodeType.value = nodeData.nodeType;
+                        if(inputNodeType.value === 'post') btnAddPostDiv.style.display = 'block';
+                        else btnAddPostDiv.style.display = 'none';
+                        btnAddPost.addEventListener('click',(e)=>{
+                            e.preventDefault();
+                            location.href = '/new-post/' + inputId.value;
+                        });
+                    }
+
+                };
+
+            };
+
+            var Renderer = function (canvas) {
+                var canvas = $(canvas).get(0);
+                var ctx = canvas.getContext("2d");
+                var particleSystem;
+                var that = {
+                    init: function (system) {
+                        particleSystem = system;
+                        particleSystem.screenSize(canvas.width, canvas.height);
+                        particleSystem.screenPadding(100);
+                        that.initMouseHandling()
+                    },
+                    redraw: function () {
+                        ctx.fillStyle = "white";
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        particleSystem.eachEdge(function (edge, pt1, pt2) {
+                            ctx.strokeStyle = edge.data.linkcolor;
+                            ctx.lineWidth = 3;
+                            ctx.beginPath();
+                            ctx.moveTo(pt1.x, pt1.y);
+                            ctx.lineTo(pt2.x, pt2.y);
+                            ctx.stroke();
+                        });
+                        particleSystem.eachNode(function (node, pt) {
+                            ctx.beginPath();
+                            ctx.arc(pt.x, pt.y, 15, 0, 2 * Math.PI);
+                            ctx.fillStyle = node.data.nodecolor;
+                            ctx.fill();
+                            ctx.font = "18px Arial";
+                            ctx.fillStyle = "#000000";
+                            ctx.fillText(node.data.name, pt.x + 20, pt.y + 5);
+                        });
+                    },
+                    initMouseHandling: function () {
+                        var dragged = null;
+                        var handler = {
+                            clicked: function (e) {
+                                var pos = $(canvas).offset();
+                                _mouseP = arbor.Point(e.pageX - pos.left, e.pageY - pos.top);
+                                selected = nearest = dragged = particleSystem.nearest(_mouseP);
+                                if (dragged && dragged.node !== null) {
+                                    dragged.node.fixed = true;
+                                }
+                                $(canvas).bind('mousemove', handler.dragged);
+                                $(window).bind('mouseup', handler.dropped);
+                                console.dir(selected);
+                                console.dir(selected.node);
+                                console.dir(selected.node.data);
+                                if(selected.node.data.link) location.href = selected.node.data.link;
+                                if(nodeModalFlag && selected.node.data.parentType === 'node'){
+                                    showModal(selected.node.data);
+                                }
+                                if(nodeModalFlag && selected.node.data.parentType === 'stage'){
+                                    showModalStage(selected.node.data);
+                                }
+                                return false;
+                            },
+                            dragged: function (e) {
+                                var pos = $(canvas).offset();
+                                var s = arbor.Point(e.pageX - pos.left, e.pageY - pos.top);
+                                if (dragged && dragged.node !== null) {
+                                    var p = particleSystem.fromScreen(s);
+                                    dragged.node.p = p
+                                }
+                                return false;
+                            },
+                            dropped: function (e) {
+                                if (dragged === null || dragged.node === undefined) return;
+                                if (dragged.node !== null) dragged.node.fixed = false;
+                                dragged.node.tempMass = 1000;
+                                dragged = null;
+                                $(canvas).unbind('mousemove', handler.dragged);
+                                $(window).unbind('mouseup', handler.dropped);
+                                _mouseP = null;
+                                return false;
+                            }
+                        };
+                        $(canvas).mousedown(handler.clicked);
+                    }
+                }
+                return that;
+            }
+
+            let draw = function (stageList) {
+                var sys = arbor.ParticleSystem(700, 700, 0.5);
+                sys.renderer = Renderer("#viewport");
+
+                let recursionNode = function (childNodeList,parentType,parentId){
+                    console.log("=========================================");
+                    console.log("node list : "+childNodeList);
+                    console.log("parentType : " + parentType);
+                    console.log("parentId : " + parentId);
+                    if(childNodeList.length > 0)
+                        childNodeList.forEach(node => {
+                            console.log("----------------------------------------");
+                            console.log("node : " + node);
+                            sys.addNode('Node ' + node.id, {name : node.title, nodecolor:"#888888",
+                                id : node.id,
+                                parentType : "node", parentId : parentId,
+                                nodeType : node.nodeType, title:node.title,
+                                shortDescription:node.shortDescription, url : node.url,
+                                complete : node.complete, read : node.read, text:node.text});
+                            if(parentType === 'stage' ) sys.addEdge('Node stage ' + parentId, 'Node ' + node.id, {linkcolor: "#888888"});
+                            else if (parentType === 'node') sys.addEdge('Node ' + parentId, 'Node ' + node.id, {linkcolor: "#888888"});
+                            count++;
+                            if(node.childs.length > 0) recursionNode(node.childs,"node",node.id);
+                        });
+                    else return;
+                }
+
+                let len = stageList.length;
+                let count = 100;
+
+                stageList.sort((s1,s2) => {return s1.ord - s2.ord})
+
+                let prev = 0;
+                stageList.forEach((stage,i) => {
+                    if(stage.head)
+                        sys.addNode('Node stage ' + stage.id, {name : stage.title, nodecolor:"#88cc88",
+                            id : stage.id, parentType: 'stage',title:stage.title});
+                    else if (stage.tail)
+                        sys.addNode('Node stage ' + stage.id, {name : stage.title, nodecolor:"#ff8888",
+                            id : stage.id, parentType: 'stage',title:stage.title});
+                    else
+                        sys.addNode('Node stage ' + stage.id, {name : stage.title, nodecolor:"#6CC0BA",
+                            id : stage.id, parentType: 'stage',title:stage.title});
+                    if(len >= i+1 && prev !== 0)
+                        sys.addEdge('Node stage ' + stage.id, 'Node stage ' + prev, {linkcolor: "#888888",
+                            id : stage.id, parentType: 'stage',title:stage.title});
+
+                    prev = stage.id;
+                    recursionNode(stage.nodeList,"stage",stage.id);
+                });
+                /*
+                sys.addNode('Node 1', {name: "Node 1", nodecolor: "#88cc88"});
+                sys.addNode('Node 2', {name: "Node 2", nodecolor: "#888888"});
+                sys.addNode('Node 3', {name: "Node 3", nodecolor: "#888888"});
+                sys.addNode('Node 4', {name: "Node 4", nodecolor: "#888888"});
+                sys.addNode('Node 5', {name: "Node 5", nodecolor: "#888888"});
+                sys.addNode('Node 6', {name: "Node 6", nodecolor: "#888888"});
+                sys.addEdge('Node 1', 'Node 3', {linkcolor: "#888888"});
+                sys.addEdge('Node 1', 'Node 2', {linkcolor: "#888888"});
+                sys.addEdge('Node 2', 'Node 5', {linkcolor: "#ff8888"});
+                sys.addEdge('Node 2', 'Node 4', {linkcolor: "#ff8888"});
+                sys.addEdge('Node 4', 'Node 5', {linkcolor: "#ff8888"});
+                sys.addEdge('Node 5', 'Node 6', {linkcolor: "#888888"});
+                */
+
+            };
+
+            $(document).ready(draw(stageList));
+
+            addStageBtn.addEventListener("click",(e) => {
+                let title = '제목 ' + stageList.length;
+                let obj = {"title" : title};
+                let params = {obj:obj};
+
+                //let successHandler = result => console.log('success : ' + result);
+                //let errorHandler = result => console.log('error : ' + result);
+
+                //let successDrawHadnler = result => draw(JSON.stringify(result));
+
+                //roadmapService.addNewStage(params);
+                //roadmapService.prAddNewStage(params).then(successHandler,errorHandler);
+                //roadmapService.prGetStageList().then(successDrawHadnler,errorHandler);
+
+                let p1 = roadmapService.prAddNewStage;
+                let p2 = roadmapService.prGetStageList;
+                let pa = Promise.all([p1,p2]);
+
+                pa.then(value => {
+                    value[0](params).then(result => {
+                        console.log('add new stage success : '+result);
+                        console.dir(result);
+
+                        return p2();
+                    }).then(result => {
+                        console.log('get list success : '+result);
+                        console.dir(result);
+
+                        let canvas = document.querySelector('#viewport');
+                        canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
+
+                        draw(result);
+                    });
+                });
+
+
+            });
+
+            let removeSubmitBtnNodeHandler = function (e) {
+                e.preventDefault();
+                let formData = {};
+                let id = document.querySelector("#form-id"),
+                    parentType = document.querySelector("#form-parentType");
+
+                formData["id"] = id.value;
+                formData["parentType"] = parentType.value;
+
+                let params = {formData:formData};
+
+                let p1 = roadmapService.prRemoveNode;
+                let p2 = roadmapService.prGetStageList;
+                let pa = Promise.all([p1,p2]);
+
+                pa.then(value => {
+                    value[0](params).then(result => {
+                        console.log('remove : '+result);
+                        console.dir(result);
+
+                        return p2();
+                    },result => {
+                        console.log('remove error : '+result);
+                        console.dir(result);
+
+                        return p2();
+                    }).then(result => {
+                        console.log('get list success : '+result);
+                        console.dir(result);
+
+                        nodeModal.setAttribute("style", "{display : none}")
+
+                        let canvas = document.querySelector('#viewport');
+                        canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
+
+                        draw(result);
+                    });
+                });
+
+            }
+
+            let addSubmitBtnNodeHandler = function (e) {
+                e.preventDefault();
+                let formData = {};
+                let inputData = $(".modal-add input");
+                let selectValue = document.querySelector(".modal-add select").value;
+                for (let i = 0; i < inputData.length; i++) {
+                    if(inputData[i].name.toString().includes("id") || inputData[i].name.toString().includes("Id")) formData[inputData[i].name] = parseInt(inputData[i].value);
+                    else formData[inputData[i].name] = inputData[i].value;
+
+                    console.log(inputData[i].name);
+                    console.log(inputData[i].value);
+                }
+                formData["nodeType"] = selectValue;
+                console.dir(formData);
+
+                let params = {formData : formData};
+
+                let p1 = roadmapService.prAddNode;
+                let p2 = roadmapService.prGetStageList;
+                let pa = Promise.all([p1,p2]);
+
+                pa.then(value => {
+                    value[0](params).then(result => {
+                        console.log('add new stage success : '+result);
+                        console.dir(result);
+
+                        return p2();
+                    }).then(result => {
+                        console.log('get list success : '+result);
+                        console.dir(result);
+
+                        nodeModal.setAttribute("style", "{display : none}")
+
+                        let canvas = document.querySelector('#viewport');
+                        canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
+
+                        draw(result);
+                    });
+                });
+            };
+
+            let modifySubmitBtnNodeHandler = function (e){
+                e.preventDefault();
+                let formData = {};
+                let inputData = $(".modal-modify input");
+                let selectValue = document.querySelector(".modal-add select").value;
+                for (let i = 0; i < inputData.length; i++) {
+                    if(inputData[i].name.toString().includes("id") || inputData[i].name.toString().includes("Id")) formData[inputData[i].name] = parseInt(inputData[i].value);
+                    else if(inputData[i].name.toString() === "read" || inputData[i].name.toString() === "complete" ) formData[inputData[i].name] = inputData[i].checked;
+                    else formData[inputData[i].name] = inputData[i].value;
+
+                    console.log(inputData[i].name);
+                    console.log(inputData[i].value);
+                };
+                formData["nodeType"] = selectValue;
+                let params = {formData:formData};
+
+                let p1 = roadmapService.prModifyNode;
+                let p2 = roadmapService.prGetStageList;
+                let pa = Promise.all([p1,p2]);
+
+                pa.then(value => {
+                    value[0](params).then(result => {
+                        console.log('add new stage success : '+result);
+                        console.dir(result);
+
+                        return p2();
+                    }).then(result => {
+                        console.log('get list success : '+result);
+                        console.dir(result);
+
+                        nodeModal.setAttribute("style", "{display : none}")
+
+                        let canvas = document.querySelector('#viewport');
+                        canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
+
+                        draw(result);
+                    });
+                });
+            };
+
+            addSubmitBtn.addEventListener("click", addSubmitBtnNodeHandler);
+
+            modifySubmitBtn.addEventListener("click",modifySubmitBtnNodeHandler);
+
+            removeBtn.addEventListener("click",removeSubmitBtnNodeHandler,removeSubmitBtnNodeHandler);
+
+        })(this.jQuery);
+    </script>
+</div>
+<script>
+    // url, data를 매개변수로 사용
+    /*
+    $(".btn").click(function(url,data){
+        $.ajax({
+            beforeSend : function (request) {
+                request.setRequestHeader("Authorization", 'Bearer ' + roadmapAppKey);
+            },
+            dataType:"json",
+            url: host + url,
+            data : data,
+            success : function (arr) {
+                console.log(arr);
+            }
+        });
+    });
+     */
+</script>
+<div th:replace="fragments.html :: ajax-csrf-header"></div>
+<script th:replace="fragments.html :: tooltip"></script>
+</body>
+</html>
