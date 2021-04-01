@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.roadmap.util.JWTTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-02-24T11:33:47" hostname="DESKTOP-MRB3AOK" time="5.014">
+<testsuite name="com.roadmap.util.JWTTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-03-12T05:35:52" hostname="DESKTOP-MRB3AOK" time="5.02">
   <properties/>
-  <testcase name="testValidate()" classname="com.roadmap.util.JWTTest" time="5.011"/>
-  <testcase name="testObjectMapperTest()" classname="com.roadmap.util.JWTTest" time="0.002"/>
+  <testcase name="testValidate()" classname="com.roadmap.util.JWTTest" time="5.013"/>
+  <testcase name="testObjectMapperTest()" classname="com.roadmap.util.JWTTest" time="0.006"/>
   <testcase name="testEncode()" classname="com.roadmap.util.JWTTest" time="0.001"/>
   <system-out><![CDATA[testBefore.............
-2021-02-24 20:33:52.252  INFO 13216 --- [    Test worker] com.roadmap.util.JWTUtil                 : header={alg=HS256},body={iat=1614166427, exp=1616758427, sub=kjuioq@nate.com},signature=IW-9vp1jK53UXC9qJfGLib4OhY338xSO2QKWbvK865Y
-2021-02-24 20:33:52.252  INFO 13216 --- [    Test worker] com.roadmap.util.JWTUtil                 : class io.jsonwebtoken.impl.DefaultClaims
-2021-02-24 20:33:52.252  INFO 13216 --- [    Test worker] com.roadmap.util.JWTUtil                 : -----------------------------
-eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTQxNjY0MjcsImV4cCI6MTYxNjc1ODQyNywic3ViIjoia2p1aW9xQG5hdGUuY29tIn0.IW-9vp1jK53UXC9qJfGLib4OhY338xSO2QKWbvK865Y
+2021-03-12 14:35:57.780  INFO 43004 --- [    Test worker] com.roadmap.util.JWTUtil                 : header={alg=HS256},body={iat=1615527352, exp=1618119352, sub=kjuioq@nate.com},signature=V98xAxT6QAJkd-0JxG1AJPwDUqn9VrEyW612e8iJUbI
+2021-03-12 14:35:57.780  INFO 43004 --- [    Test worker] com.roadmap.util.JWTUtil                 : class io.jsonwebtoken.impl.DefaultClaims
+2021-03-12 14:35:57.780  INFO 43004 --- [    Test worker] com.roadmap.util.JWTUtil                 : -----------------------------
+eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTU1MjczNTIsImV4cCI6MTYxODExOTM1Miwic3ViIjoia2p1aW9xQG5hdGUuY29tIn0.V98xAxT6QAJkd-0JxG1AJPwDUqn9VrEyW612e8iJUbI
 kjuioq@nate.com
 testBefore.............
 str : {"id":1,"parentId":1,"parentType":"parentType","title":"title","nodeType":"type"}
 nodeAddForm1 : NodeAddForm(id=1, parentId=1, parentType=parentType, title=title, nodeType=type)
 testBefore.............
-eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTQxNjY0MzIsImV4cCI6MTYxNjc1ODQzMiwic3ViIjoia2p1aW9xcXFAbmF2ZXIuY29tIn0.72ap6ALM0X9luu2qLt-56-pXET-mDwxUTlpkKVYi5jU
+eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTU1MjczNTcsImV4cCI6MTYxODExOTM1Nywic3ViIjoia2p1aW9xcXFAbmF2ZXIuY29tIn0.i1GZA2Vjkc6sCIc9MqgsSh2K7g-XM3FuwtEAv_XntWQ
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

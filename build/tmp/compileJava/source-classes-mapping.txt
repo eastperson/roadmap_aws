@@ -95,6 +95,8 @@ com/roadmap/dto/roadmap/StageDTO.java
  com.roadmap.dto.roadmap.StageDTO
 com/roadmap/model/QEnrollment.java
  com.roadmap.model.QEnrollment
+com/roadmap/config/SwaggerConfiguration.java
+ com.roadmap.config.SwaggerConfiguration
 com/roadmap/repository/NodeRepository.java
  com.roadmap.repository.NodeRepository
 com/roadmap/controller/PostController.java
